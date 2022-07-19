@@ -1,0 +1,190 @@
+body {
+  margin: 0;
+  color: black;
+  align-content: center;
+  text-align: center;
+  background-color: #e6e6f8	;
+}
+
+img{
+  color: white;
+}
+h6 {
+  font-size: 1.5em;
+  color: white;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  text-align: center;
+  padding-top: 5%;
+  padding-left: 10px;
+  padding-right: 10px;
+
+}
+h4{
+  font-size: 0.8em;
+  color: white;
+  font-family: fantasy;
+  text-align: center;
+ 
+}
+label {
+  font-size: 0.8em;
+  color: white;
+  align-content: center;
+  padding-top: 5%;
+  text-align: center;
+  align-items: center;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+nav {
+  background-color: #751de8;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  padding-left: 2%;
+  padding-right: 2%;
+
+}
+
+li {
+  font-size: 1.5em;
+  color: black;
+  font-family: fantasy;
+  font-style: bold;
+
+}
+
+a {
+  font-size: 1.5;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: white;
+
+}
+footer{
+  background: #751de8;
+  padding-top: 20px;
+  width: 100%;
+  height: 100px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  font-family: fantasy;
+  }
+
+.modal-content div{
+  background-color: #E6E6FA		;
+}
+
+
+.modal-content-gameover div{
+  background-color: #7001b9;
+  padding-top: 10px;
+}
+
+a #timer{
+  font-size: 1.5em;
+  color: black;
+  font-family: fantasy;
+  font-style: bold;
+
+}
+div #modal-body p {
+  font-size: 1.5em;
+  color: black;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  text-align: center;
+  padding-top: 5%;
+  padding-left: 10px;
+  padding-right: 10px;
+
+}
+li #redimensionar-img img {
+  width: 65px;
+  padding-top: 0.3;
+}
+div #responsive-capture div{
+  display: block;
+ 
+  align-items: center;
+  align-content: center;
+
+}
+div #responsive-imgs img {
+  display: block;
+  margin: 5px auto;
+  max-width: 100%;
+  align-items: center;
+  align-content: center;
+
+}
+div #responsive-imgs-mensagens a {
+  display: block;
+  margin: 5px auto;
+  max-width: 100%;
+  align-items: center;
+  align-content: center;
+
+}
+div #responsive-imgs-sorteio img {
+  display: block;
+  margin: 5px auto;
+  max-width: 100%;
+  align-items: center;
+  align-content: center;
+  padding-top: 7%;
+  padding-left: 5%;
+  padding-right: 5%;
+
+}
+
+div #responsive-botton img {
+  display: block;
+  width: 200px;
+  padding-bottom: 10px;
+  align-content: center;
+  align-items: center;
+}
+
+div #responsive-botton-sorteio img {
+  display: block;
+  margin: 5px auto;
+  width: 200px;
+  align-content: center;
+}
+
+div .minhaDiv {
+  font-family: fantasy;
+  color: white;
+  text-align: center;
+  align-items: center;
+  align-content: center;
+
+  max-width: 1920;
+  max-height: 1280;
+}
+
+div .solido {
+  width: auto;
+  display: block;
+  margin: 5px auto;
+  align-content: center;
+
+}
+
+div .container {
+  display: block;
+  align-content: center;
+}
+
+/*------------EFEITO RAINBOW-----------------*/
+.bg-inicial{
+  animation: bg-color 7s infinite;
+}
+
+@keyframes bg-color {
+  0% { background-color: #583197; }
+  20% { background-color: #7001b9; }
+  40% { background-color: #7105b9; }
+  60% { background-color: #881ccf; }
+  80% { background-color: #730fb6; }
+  100% { background-color: #580192; }
+}

@@ -56,9 +56,7 @@ async function solidos() {
         console.error(img);
     }
 
-    var pontos = 0;
-    pontos++;
-    document.getElementById("score").innerHTML = "" + pontos;
+    
 }
 
 async function init() {
@@ -154,9 +152,17 @@ async function loop() {
     window.requestAnimationFrame(loop);
 }
 
-
+function pontos(){
+    var score = document.getElementById("score");
+    soma =  score + 1;
+    document.getElementById("score").innerHTML = "" + soma;
+}
 /* ------------------ PREDIÇÃO----------- */
 async function predict() {
+
+    var pontos = 0;
+    pontos++;
+    document.getElementById("score").innerHTML = "" + pontos;
 
     // predict can take in an image, video or canvas html element
     const prediction = await model.predict(webcam.canvas);

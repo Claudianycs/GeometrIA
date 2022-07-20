@@ -14,7 +14,10 @@ function pausestart() {
 
 function playcount() {
     audioContainerCount.play();
+}
 
+function pausecount() {
+    audioContainerCount.pause();
 }
 function playcorrect() {
     audioContainerCorrect.play();

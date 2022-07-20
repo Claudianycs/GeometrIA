@@ -2,8 +2,16 @@
 function iniciando() {
     $(document).ready(function () {
         $('#myModal').modal('show');
+        pausecount();
         init();
-        solidos();
+    });
+
+}
+
+function playgame() {
+    $(document).click(function () {
+        init();
+        playstart();
     });
 
 }
@@ -15,6 +23,7 @@ function next() {
         playcorrect();
         pauseTimer();  
         printsolido();
+        //pontos();
     });
 
 }

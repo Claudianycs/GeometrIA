@@ -112,16 +112,10 @@ async function init() {
 /* ---------------------- CAM CAPTURE ---------------------*/
 function printsolido() {
 
-    var altura = document.getElementById('webcam-container').clientHeight;
-    var largura = document.getElementById('webcam-container').clientWidth;
+    html2canvas(webcam.canvas, { width: 300, height: 300, scale: 1 }).then(canvas => {
+        document.getElementById("capture-solido").appendChild(canvas);
 
-    var width = largura/2;
-    var height = altura/2;
-
-    html2canvas(webcam.canvas{width, height}).then(canvas => {
-        document.getElementById("capture-solido").appendChild(canvas)
-        webcam.pause();
-
+        return webcam.pause();;
     });
 
 }
@@ -167,8 +161,6 @@ function pontos() {
     var score = 0;
     score++;
     document.getElementById("score").innerHTML = "" + score;
-    
-    document.getElementById("codigo").disabled = false;
 
 }
 /* ------------------ PREDIÇÃO----------- */
@@ -183,27 +175,29 @@ async function predict() {
         labelContainer.childNodes[i].innerHTML = classPrediction;
         if (prediction[i].probability > 0.94) {
             if (mudar == 0 && i == 0) {
+
                 next()
                 pontos();
                 break;
             } else if (mudar == 1 && i == 1) {
-                next();
 
+                next();
                 pontos();
                 break;
             } else if (mudar == 2 && i == 2) {
-                next();
 
+                next();
                 pontos();
                 break;
 
             } else if (mudar == 3 && i == 3) {
-                next();
 
+                next();
                 pontos();
                 break;
 
             } else if (mudar == 4 && i == 4) {
+
                 next();
 
                 pontos();
@@ -234,10 +228,12 @@ async function predict() {
 function iniciando() {
     $(document).ready(function () {
         $('#myModal').modal('show');
+        playstart();
         pausecount();
         solidos();
         init();
     });
+
 }
 
 function next() {
@@ -246,9 +242,10 @@ function next() {
         pausestart();
         playcorrect();
         pauseTimer();
+
+        webcam.pause()
         printsolido();
 
-        webcam.pause();
     });
 }
 
@@ -258,8 +255,9 @@ function reiniciando() {
         pausecount();
         solidos();
         document.getElementById("codigo").disabled = false;
-        
-        webcam.play(); 
+
+
+        webcam.play(); // update the webcam frame
         window.requestAnimationFrame(loop);
     });
 
@@ -267,7 +265,8 @@ function reiniciando() {
         $('#myModal').modal('hidden');
         myTimer();
 
-    })
+    });
+
 }
 
 function gameover() {

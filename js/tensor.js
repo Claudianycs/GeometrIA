@@ -4,7 +4,7 @@
 // the link to your model provided by Teachable Machine export panel
 const URL = "https://teachablemachine.withgoogle.com/models/6BFn4KAKX/";
 
-let model, webcam, labelContainer, maxPredictions, score, scoretotal, mudar;
+let model, webcam, labelContainer, maxPredictions, score, point, scoretotal, mudar;
 
 
 let timer = 31;
@@ -56,7 +56,7 @@ async function solidos() {
         console.error(img);
     }
 
-    
+
 }
 
 async function init() {
@@ -81,16 +81,22 @@ async function init() {
         await webcam.play();
         window.requestAnimationFrame(loop);
 
+        myTimer();
+
     } else if (screenWidth > 360 || screenWidth <= 414 && screenHeight <= 969) {
         webcam = new tmImage.Webcam(375, 375, flip); // width, height, flip
         await webcam.setup({ facingMode: "environment" }); // request access to the webcam
         await webcam.play();
         window.requestAnimationFrame(loop);
+
+        myTimer();
+
     } else {
         webcam = new tmImage.Webcam(1920, 800, flip); // width, height, flip
         await webcam.setup(); // request access to the webcam
         await webcam.play();
         window.requestAnimationFrame(loop);
+        myTimer();
     }
 
     // append elements to the DOM
@@ -106,12 +112,16 @@ async function init() {
 /* ---------------------- CAM CAPTURE ---------------------*/
 function printsolido() {
 
-    html2canvas(document.querySelector("#webcam-container"), {
-        width: 300,
-        height: 300,
-        allowTaint: true}).then(canvas => {
+    var altura = document.getElementById('webcam-container').clientHeight;
+    var largura = document.getElementById('webcam-container').clientWidth;
+
+    var width = largura/2;
+    var height = altura/2;
+
+    html2canvas(webcam.canvas{width, height}).then(canvas => {
         document.getElementById("capture-solido").appendChild(canvas)
         webcam.pause();
+
     });
 
 }
@@ -141,7 +151,7 @@ function myTimer() {
 function pauseTimer() {
     $(document).ready(function () {
         clearInterval(counter);
-        timer = 30;
+
     });
 }
 
@@ -152,17 +162,18 @@ async function loop() {
     window.requestAnimationFrame(loop);
 }
 
-function pontos(){
-    var score = document.getElementById("score");
-    soma =  score + 1;
-    document.getElementById("score").innerHTML = "" + soma;
+function pontos() {
+
+    var score = 0;
+    score++;
+    document.getElementById("score").innerHTML = "" + score;
+    
+    document.getElementById("codigo").disabled = false;
+
 }
 /* ------------------ PREDIÇÃO----------- */
 async function predict() {
 
-    var pontos = 0;
-    pontos++;
-    document.getElementById("score").innerHTML = "" + pontos;
 
     // predict can take in an image, video or canvas html element
     const prediction = await model.predict(webcam.canvas);
@@ -172,36 +183,41 @@ async function predict() {
         labelContainer.childNodes[i].innerHTML = classPrediction;
         if (prediction[i].probability > 0.94) {
             if (mudar == 0 && i == 0) {
-                next();
-                webcam.reset();
+                next()
+                pontos();
                 break;
             } else if (mudar == 1 && i == 1) {
                 next();
-                webcam.reset();
+
+                pontos();
                 break;
             } else if (mudar == 2 && i == 2) {
                 next();
-                webcam.reset();
+
+                pontos();
                 break;
 
             } else if (mudar == 3 && i == 3) {
                 next();
-                webcam.reset();
+
+                pontos();
                 break;
 
             } else if (mudar == 4 && i == 4) {
                 next();
-                webcam.reset();
+
+                pontos();
+                break;
+
 
             } else if (mudar == 5 && i == 5) {
                 next();
-                webcam.reset();
-
+                pontos();
                 break;
 
             } else if (mudar == 6 && i == 6) {
                 next();
-                webcam.reset();
+                pontos();
                 break;
             } else {
                 document.getElementById("image").innerHTML = "ainda não encontrei";
@@ -213,4 +229,51 @@ async function predict() {
 
 
     }// fim if proba
+}
+
+function iniciando() {
+    $(document).ready(function () {
+        $('#myModal').modal('show');
+        pausecount();
+        solidos();
+        init();
+    });
+}
+
+function next() {
+    $(document).ready(function () {
+        $('#myModalNext').modal('show');
+        pausestart();
+        playcorrect();
+        pauseTimer();
+        printsolido();
+
+        webcam.pause();
+    });
+}
+
+function reiniciando() {
+    $(document).ready(function () {
+        $('#myModal').modal('show');
+        pausecount();
+        solidos();
+        document.getElementById("codigo").disabled = false;
+        
+        webcam.play(); 
+        window.requestAnimationFrame(loop);
+    });
+
+    $('#codigo').prop("disabled", true).click(function () {
+        $('#myModal').modal('hidden');
+        myTimer();
+
+    })
+}
+
+function gameover() {
+    $(document).ready(function () {
+        $('#myModalGameOver').modal('show');
+        webcam.pause();
+    });
+
 }

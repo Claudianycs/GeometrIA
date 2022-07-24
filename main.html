@@ -55,6 +55,8 @@
     <div src="" id="image"></div>
 
     <div id="canvas"></div>
+
+    <a id="pontos" type="button" onclick="pontos()"> pontos</a>
   </div>
 
   <!------------------------------------ MODAL SORTEIO SOLIDOS-------------------------------------->
@@ -73,7 +75,7 @@
             <p id="texto-solido" class="texto-solido"></p>
           </div>
           <div id="responsive-botton">
-            <a href="#" type="button" class="custom-url" id="codigo" data-bs-dismiss="modal" onClick="playgame()"><img
+            <a href="#" type="button" class="custom-url" id="codigo" data-bs-dismiss="modal" onClick="playstart()"><img
                 src="assets/images/bt_play.png"></a>
           </div>
         </div>
@@ -90,10 +92,10 @@
           <img src="assets/images/mensagem2.png">
         </div>
         <div id="responsive-botton">
-          <a href="main.html" type="button"><img src="assets/images/bt_next.png"></a>
+          <a href="" type="button" data-bs-dismiss="modal" id="btnext" onclick="  reiniciando()"><img src="assets/images/bt_next.png"></a>
         </div>
         <div id="responsive-capture">
-          <div id="capture-solido" width="50" height="50"> </div>
+          <div id="capture-solido"> </div>
         </div>
       </div>
     </div>
@@ -138,7 +140,9 @@
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.5/dist/html2canvas.min.js">
   </script>
-
+<script id="__bs_script__">//<![CDATA[
+document.write("<script async src='/browser-sync/browser-sync-client.js?v=2.23.3'><\/script>".replace("HOST", location.hostname));
+//]]></script>
   <script src="js/tensor.js"></script>
   <script src="js/config.js"></script>
   <script src="js/sounds.js"></script>

@@ -103,7 +103,7 @@ li #redimensionar-img img {
 }
 div #responsive-capture div{
   display: block;
- 
+  max-width: 100%;
   align-items: center;
   align-content: center;
 

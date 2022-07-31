@@ -6,7 +6,7 @@ const URL = "https://teachablemachine.withgoogle.com/models/6BFn4KAKX/";
 
 let model, webcam, labelContainer, maxPredictions, point, scoretotal, mudar;
 
-let score =0;
+let score = 0;
 let timer = 31;
 
 // Load the image model and setup the webcam
@@ -158,13 +158,13 @@ async function loop() {
 
 function pontos() {
 
-    score+=1;
+    score += 1;
     document.getElementById("score").innerHTML = "" + score;
 
 }
 
 function atualizapontos() {
-    score+=1;
+    score += 1;
     score.getElementById("score").innerHTML = "" + score;
 
 }
@@ -180,36 +180,36 @@ async function predict() {
         if (prediction[i].probability > 0.94) {
             if (mudar == 0 && i == 0) {
                 next();
-                
+
                 break;
             } else if (mudar == 1 && i == 1) {
-                
+
                 next();
                 break;
             } else if (mudar == 2 && i == 2) {
-                
+
                 next();
                 break;
 
             } else if (mudar == 3 && i == 3) {
-              
+
                 next();
                 break;
 
             } else if (mudar == 4 && i == 4) {
-              
+
                 next();
                 break;
 
 
             } else if (mudar == 5 && i == 5) {
                 next();
-             
+
                 break;
 
             } else if (mudar == 6 && i == 6) {
                 next();
-                
+
                 break;
             } else {
                 document.getElementById("image").innerHTML = "ainda não encontrei";
@@ -240,9 +240,8 @@ function next() {
         pausestart();
         playcorrect();
         pauseTimer();
-pontos();
+        pontos();
         printsolido();
-     
         webcam.pause();
     });
 
@@ -265,7 +264,6 @@ function reiniciando() {
         $('#myModal').modal('show');
         myTimer();
 
-
     });
 
 }
@@ -274,6 +272,8 @@ function gameover() {
     $(document).ready(function () {
         $('#myModalGameOver').modal('show');
         webcam.pause();
+
+        document.getElementById("pontos").innerText = "" + score + " pontos";
     });
 
 }

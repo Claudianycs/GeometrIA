@@ -180,36 +180,36 @@ async function predict() {
         if (prediction[i].probability > 0.94) {
             if (mudar == 0 && i == 0) {
                 next();
-
+                pontos();
                 break;
             } else if (mudar == 1 && i == 1) {
-
+                pontos();
                 next();
                 break;
             } else if (mudar == 2 && i == 2) {
-
+                pontos();
                 next();
                 break;
 
             } else if (mudar == 3 && i == 3) {
-
+                pontos();
                 next();
                 break;
 
             } else if (mudar == 4 && i == 4) {
-
+                pontos();
                 next();
                 break;
 
 
             } else if (mudar == 5 && i == 5) {
                 next();
-
+                pontos();
                 break;
 
             } else if (mudar == 6 && i == 6) {
                 next();
-
+                pontos();
                 break;
             } else {
                 document.getElementById("image").innerHTML = "ainda não encontrei";
@@ -239,8 +239,7 @@ function next() {
         $('#myModalNext').modal('show');
         pausestart();
         playcorrect();
-        pauseTimer();
-        pontos();
+        pauseTimer();   pontos();
         printsolido();
         webcam.pause();
     });
@@ -252,12 +251,11 @@ function reiniciando() {
         $('#myModal').modal('show');
         pausecount();
         solidos();
-        pontos();
+    
 
         webcam.play(); // update the webcam frame
         window.requestAnimationFrame(loop);
 
-        atualizapontos();
     });
 
     $('#codigo').prop("disabled", false).click(function () {

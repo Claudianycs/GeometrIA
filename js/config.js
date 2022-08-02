@@ -1,3 +1,6 @@
+let cta = document.getElementById('init');
+let count = 6;
+
 /*SORTEIO SÓLIDOS*/
 function sortear() {
 
@@ -41,8 +44,7 @@ function sortear() {
 }
 
 /* ------------------ CONTAGEM REGRESSIVA ---------------------- */
-let cta = document.getElementById('init');
-let count = 6;
+
 
 $('.cta').prop("disabled", true).click(function() {
   counter = setInterval(() => {

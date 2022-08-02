@@ -19,6 +19,7 @@ h6 {
   padding-right: 10px;
 
 }
+
 h4{
   font-size: 0.8em;
   color: white;
@@ -85,8 +86,8 @@ a #timer{
   color: black;
   font-family: fantasy;
   font-style: bold;
-
 }
+
 div #modal-body p {
   font-size: 1.5em;
   color: black;
@@ -95,12 +96,13 @@ div #modal-body p {
   padding-top: 5%;
   padding-left: 10px;
   padding-right: 10px;
-
 }
+
 li #redimensionar-img img {
   width: 65px;
   padding-top: 0.3;
 }
+
 div #responsive-capture div{
   display: block;
   max-width: 100%;

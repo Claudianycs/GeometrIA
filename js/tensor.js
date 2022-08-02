@@ -8,6 +8,7 @@ let model, webcam, labelContainer, maxPredictions, point, scoretotal, mudar;
 
 let score = 0;
 let timer = 31;
+let btn = document.getElementById('codigo');
 
 // Load the image model and setup the webcam
 async function solidos() {
@@ -121,7 +122,7 @@ function printsolido() {
 }
 /*------------------------TIMER GAMER------------------------------------ */
 
-let btn = document.getElementById('codigo');
+
 
 btn.addEventListener('click', () => {
     btn.disabled = true;
@@ -174,45 +175,67 @@ async function predict() {
     // predict can take in an image, video or canvas html element
     const prediction = await model.predict(webcam.canvas);
     for (let i = 0; i < maxPredictions; i++) {
-        const classPrediction =
+      /*  const classPrediction =
             prediction[i].className + ": " + prediction[i].probability.toFixed(2);
-        labelContainer.childNodes[i].innerHTML = classPrediction;
+        labelContainer.childNodes[i].innerHTML = classPrediction;*/
+
+        
         if (prediction[i].probability > 0.94) {
             if (mudar == 0 && i == 0) {
                 next();
                 pontos();
+
+                document.getElementById("nomesolido").innerHTML = "Prisma Triângular";
+                
                 break;
             } else if (mudar == 1 && i == 1) {
                 pontos();
                 next();
+                
+
+                document.getElementById("nomesolido").innerHTML = "Cone";
                 break;
             } else if (mudar == 2 && i == 2) {
                 pontos();
                 next();
+                
+
+                document.getElementById("nomesolido").innerHTML = "Pirâmide";
                 break;
 
             } else if (mudar == 3 && i == 3) {
                 pontos();
                 next();
+                
+                document.getElementById("nomesolido").innerHTML = "Esfera";
                 break;
 
             } else if (mudar == 4 && i == 4) {
                 pontos();
                 next();
+                
+
+
+                document.getElementById("nomesolido").innerHTML = "Parelelepípedo";
                 break;
 
 
             } else if (mudar == 5 && i == 5) {
                 next();
                 pontos();
+                
+                document.getElementById("nomesolido").innerHTML = "Cilindro";
                 break;
 
             } else if (mudar == 6 && i == 6) {
                 next();
                 pontos();
+                
+                document.getElementById("nomesolido").innerHTML = "Cubo";
+
                 break;
             } else {
-                document.getElementById("image").innerHTML = "ainda não encontrei";
+                document.getElementById("nomesolido").innerHTML = "...";
             }
         }// fim if proba
         else {
@@ -239,7 +262,7 @@ function next() {
         $('#myModalNext').modal('show');
         pausestart();
         playcorrect();
-        pauseTimer();   pontos();
+        pauseTimer();   
         printsolido();
         webcam.pause();
     });

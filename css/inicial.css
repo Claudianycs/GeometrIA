@@ -7,6 +7,7 @@ body {
     text-align: center;
 }
 
+
 .container-fluid-inicial {
     height: 100%;
     margin: 0;
@@ -72,6 +73,14 @@ body {
     animation-delay: 10s;
     left: 50vw;
     top: 10vh;
+}
+
+.card-conteudo {
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 30px;
+    align-items: center;
+
 }
 
 /* ================= Header ============ */
@@ -163,8 +172,8 @@ div #responsive-botton img {
     align-items: center;
 }
 
-div #container-text{
-    
+div #container-text {
+
     padding-left: 30px;
     padding-right: 30px;
 }
@@ -252,41 +261,72 @@ div #container-text{
 }
 
 @-webkit-keyframes rainbow {
-    0% {background-position: 0% 82%}
-    50% {background-position: 100% 19%}
-    100% {background-position: 0% 82%}
-  }
-  
-  @-moz-keyframes rainbow {
-   0% {background-position: 0% 82%}
-   50% {background-position: 100% 19%}  
-   100% { background-position: 0% 82%}
-  }
-  
-  @-o-keyframes rainbow {
-    0% {background-position: 0% 82%}
-    50% {background-position: 100% 19%}
-    100%{background-position: 0% 82%
+    0% {
+        background-position: 0% 82%
     }
-  }
-  
-  @keyframes rainbow {
-    0% {background-position: 0% 82%
-    }50% { background-position: 100% 19%
-    }100% {background-position: 0% 82%}
-  }
-  
-  .wrapper-contagem {
+
+    50% {
+        background-position: 100% 19%
+    }
+
+    100% {
+        background-position: 0% 82%
+    }
+}
+
+@-moz-keyframes rainbow {
+    0% {
+        background-position: 0% 82%
+    }
+
+    50% {
+        background-position: 100% 19%
+    }
+
+    100% {
+        background-position: 0% 82%
+    }
+}
+
+@-o-keyframes rainbow {
+    0% {
+        background-position: 0% 82%
+    }
+
+    50% {
+        background-position: 100% 19%
+    }
+
+    100% {
+        background-position: 0% 82%
+    }
+}
+
+@keyframes rainbow {
+    0% {
+        background-position: 0% 82%
+    }
+
+    50% {
+        background-position: 100% 19%
+    }
+
+    100% {
+        background-position: 0% 82%
+    }
+}
+
+.wrapper-contagem {
     font-size: 12em;
     color: white;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     text-shadow: rgba(0, 0, 0, 0.514) 2px 1px 2px;
-  
+
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-  
+
     height: 100%;
     width: 100%;
     left: 0;
@@ -294,12 +334,13 @@ div #container-text{
     top: 0;
     bottom: 0;
     position: absolute;
-    background: linear-gradient(360deg, #ff2400, #f8620b,#e3e81d, #03db27, #00afdb, #dd00f3, #3a00db, #230085);
+    background: linear-gradient(360deg, #ff2400, #f8620b, #e3e81d, #03db27, #00afdb, #dd00f3, #3a00db, #230085);
     background-size: 1800% 1800%;
-  
+
     -webkit-animation: rainbow 10s ease infinite;
     -z-animation: rainbow 10s ease infinite;
     -o-animation: rainbow 10s ease infinite;
     animation: rainbow 10s ease infinite;
-  }
-  
+}
+
+

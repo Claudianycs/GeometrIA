@@ -3,12 +3,13 @@ body {
   color: black;
   align-content: center;
   text-align: center;
-  background-color: #e6e6f8	;
+  background-color: #e6e6f8;
 }
 
-img{
+img {
   color: white;
 }
+
 h6 {
   font-size: 1.5em;
   color: white;
@@ -20,12 +21,17 @@ h6 {
 
 }
 
-h4{
+h4 {
   font-size: 0.8em;
   color: white;
-  font-family: fantasy;
   text-align: center;
- 
+
+}
+h1{
+  color: #881ccf;
+  padding-top: 20px;
+  padding-bottom: 15px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 label {
   font-size: 0.8em;
@@ -48,19 +54,12 @@ nav {
 
 li {
   font-size: 1.5em;
-  color: black;
-  font-family: fantasy;
+  color: white;
   font-style: bold;
 
 }
 
-a {
-  font-size: 1.5;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  color: white;
-
-}
-footer{
+footer {
   background: #751de8;
   padding-top: 20px;
   width: 100%;
@@ -69,23 +68,28 @@ footer{
   bottom: 0;
   left: 0;
   font-family: fantasy;
-  }
+}
 
-.modal-content div{
-  background-color: #E6E6FA		;
+.text-conteudo{
+  font-size: 1.2em;
+  text-align: justify;
+}
+.modal-content div {
+  background-color: #E6E6FA;
 }
 
 
-.modal-content-gameover div{
+.modal-content-gameover div {
   background-color: #7001b9;
   padding-top: 10px;
 }
 
-a #timer{
+a #timer {
   font-size: 1.5em;
   color: black;
   font-family: fantasy;
   font-style: bold;
+  text-decoration: none;
 }
 
 div #modal-body p {
@@ -103,13 +107,14 @@ li #redimensionar-img img {
   padding-top: 0.3;
 }
 
-div #responsive-capture div{
+div #responsive-capture div {
   display: block;
   max-width: 100%;
   align-items: center;
   align-content: center;
 
 }
+
 div #responsive-imgs img {
   display: block;
   margin: 5px auto;
@@ -118,6 +123,7 @@ div #responsive-imgs img {
   align-content: center;
 
 }
+
 div #responsive-imgs-mensagens a {
   display: block;
   margin: 5px auto;
@@ -126,6 +132,7 @@ div #responsive-imgs-mensagens a {
   align-content: center;
 
 }
+
 div #responsive-imgs-sorteio img {
   display: block;
   margin: 5px auto;
@@ -178,15 +185,101 @@ div .container {
 }
 
 /*------------EFEITO RAINBOW-----------------*/
-.bg-inicial{
+.bg-inicial {
   animation: bg-color 7s infinite;
 }
 
 @keyframes bg-color {
-  0% { background-color: #583197; }
-  20% { background-color: #7001b9; }
-  40% { background-color: #7105b9; }
-  60% { background-color: #881ccf; }
-  80% { background-color: #730fb6; }
-  100% { background-color: #580192; }
+  0% {
+    background-color: #583197;
+  }
+
+  20% {
+    background-color: #7001b9;
+  }
+
+  40% {
+    background-color: #7105b9;
+  }
+
+  60% {
+    background-color: #881ccf;
+  }
+
+  80% {
+    background-color: #730fb6;
+  }
+
+  100% {
+    background-color: #580192;
+  }
 }
+
+
+/**----NAVBRAR----*/
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+/*----------bootstrap-navbar-css------------*/
+
+.navbar-brand{
+  padding-right: 30px;
+}
+.navbar-nav{
+  align-content: right;
+  align-items: right;
+}
+.navbar-toggler span{
+  background-color: #e6e6f8;
+  text-decoration: none;
+  
+}
+.nav-item a {
+  text-decoration: none;
+  color: #fff;
+}
+.nav-item a:hover {
+  text-decoration: none;
+  color: #fff;
+}
+.navbar-mainbg {
+  background-color: #7001b9;
+  padding: 0px;
+}
+
+#navbarNavAltMarkup {
+  overflow: hidden;
+  position: relative;
+  align-items: right;
+}
+
+#navbarNavAltMarkup ul {
+  padding: 0px;
+  margin: 0px;
+
+}
+
+#navbarNavAltMarkup ul li a i {
+  margin-right: 10px;
+  color: white;
+  text-decoration: none;
+}
+
+#navbarNavAltMarkup li {
+  list-style-type: none;
+  float: left;
+}
+
+
+#navbarNavAltMarkup>ul>li.active>a {
+  color: #7001b9;
+  background-color: transparent;
+  transition: all 0.7s;
+
+  text-decoration: none;
+}
+
+

@@ -10,6 +10,27 @@ img {
   color: white;
 }
 
+h1{
+  color: #881ccf;
+  padding-top: 20px;
+  padding-bottom: 15px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+h2, h3{
+  color: #881ccf;
+  padding-top: 20px;
+  padding-bottom: 15px;
+  text-align: left;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+h4 {
+  font-size: 0.8em;
+  color: white;
+  text-align: center;
+
+}
+
 h6 {
   font-size: 1.5em;
   color: white;
@@ -19,19 +40,6 @@ h6 {
   padding-left: 10px;
   padding-right: 10px;
 
-}
-
-h4 {
-  font-size: 0.8em;
-  color: white;
-  text-align: center;
-
-}
-h1{
-  color: #881ccf;
-  padding-top: 20px;
-  padding-bottom: 15px;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 label {
   font-size: 0.8em;
@@ -77,8 +85,9 @@ footer {
 .modal-content div {
   background-color: #E6E6FA;
 }
-
-
+.conteudo ul:nth-of-type(4) {
+  list-style-type: decimal;
+}
 .modal-content-gameover div {
   background-color: #7001b9;
   padding-top: 10px;

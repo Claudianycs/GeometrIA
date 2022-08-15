@@ -26,9 +26,16 @@
                     <ul class="nav nav-tabs ml-auto" id="myTab" role="tablist">
 
                         <li class="nav-item active" role="presentation">
+                            <a href="#introducao" class="nav-link" id="introducao-tab" data-bs-toggle="tab"
+                                data-bs-target="#introducao" type="button" role="tab" aria-controls="introducao"
+                                aria-selected="false"><img src="assets/icons/solidos0009.png" width="70px">
+                                Introdução</a>
+                        </li>
+
+                        <li class="nav-item " role="presentation">
                             <a href="#poliedros" class="nav-link" id="poliedros-tab" data-bs-toggle="tab"
                                 data-bs-target="#poliedros" type="button" role="tab" aria-controls="poliedros"
-                                aria-selected="false"><img src="assets/icons/nav-deca.png"> Introdução</a>
+                                aria-selected="false"><img src="assets/icons/nav-deca.png"> Poliedros</a>
                         </li>
                         <li class="nav-item" role="presentation">
                             <a href="#cone" class="nav-link" id="cone-tab" data-bs-toggle="tab" data-bs-target="#cone"
@@ -70,7 +77,7 @@
 
 
     <div class="tab-content" id="myTabContent">
-        <div class="tab-pane fade show active" id="poliedros" role="tabpanel" aria-labelledby="poliedros-tab">
+        <div class="tab-pane fade show active" id="introducao" role="tabpanel" aria-labelledby="introducao-tab">
             <div class="container">
                 <h1> Figuras planas e não planas</h1>
                 <p class="text-conteudo">&emsp;&emsp;Ao observar os objetos à nossa volta, percebemos que eles
@@ -147,12 +154,181 @@
                     <div id="responsive-imgs">
                         <img src="assets/images/figuras-07.png">
                     </div>
-                    
+
+                    <div class="alert alert-primary" role="alert">
+                        Entenda mais sobre os <b>Poliedros</b> na próxima seção!
+                    </div>
                 </div>
+            </div>
+        </div>
+
+        <!-----------------POLIEDROS-------------------------------->
+        <div class="tab-pane fade " id="poliedros" role="tabpanel" aria-labelledby="poliedros-tab">
+            <div class="container">
+                <h1> Poliedros</h1>
+                <p class="text-conteudo"> &emsp;&emsp; Um <b>poliedro</b> é um sólido geométrico delimitado por quatro
+                    ou mais polígnonos. Os polígonos que limitam o poliedro são chamdos <b>faces</b> e seus lados e
+                    vértices são denominados, respectivamente, <b>arestas</b>
+                    e <b>vértices</b>.</p>
+                <div id="responsive-imgs">
+                    <img src="assets/images/figuras-08.png">
+                </div>
+                <p class="text-conteudo"> &emsp;&emsp; A intersecção entre duas faces forma uma aresta e a intersecção
+                    de, no mínimo, duas arestas formam um único vértice.
+                </p>
+
+                <h2>Elementos dos poliedros</h2>
+                <p class="text-conteudo"> &emsp;&emsp; Um poliedro possui os seguintes elementos: <br> <br></p>
+
+                <div class="mb-3">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="assets/images/figuras-09.png" class="img-fluid rounded-start" alt="...">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <p class="text-conteudo">
+                                    <b>Face:</b> polígono que limita o poliedro.<br>
+                                    <b>Aresta:</b> lado da face.<br>
+                                    <b>Vértice:</b> extremidade das arestas ou, simplesmente, o ponto comum entre ao
+                                    menos duas
+                                    arestas.<br>
+                                    <b>Diagonal da face:</b> segmente que une dois vértices não consecutivos de uma face
+                                    do
+                                    poliedro.<br>
+                                    <b>Diagonal do polígono:</b> também chamada apenas de <b>diagonal</b>, é o segmento
+                                    que une dois
+                                    vértices não consecutivos de faces distintas do poliedro.<br>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h2>Poliedros convexos e côncavos</h2>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img src="assets/images/figuras-11.png" class="img-fluid rounded-start" alt="...">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+
+
+                                    <p class="text-conteudo"><b>Poliedros convexos</b> são aqueles que, quando se
+                                        prolonga qualquer uma de suas faces, estas não cortam o poliedro.</p>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img src="assets/images/figuras-12.png" class="img-fluid rounded-start" alt="...">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+
+                                    <p class="text-conteudo">Já um <b>poliedro côncavo</b> é aquele em que pelo menos
+                                        uma
+                                        face, ao ser prolongada, corta o poliedro.</p>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <h2>Fórmula de Euler para poliedros</h2>
+                <p class="text-conteudo"> &emsp;&emsp; Em um poliedro convexo qualquer, é sempre válida a seguinte
+                    relação, chamada de <b>fórmula de Euler</b>:
+                </p>
+                <div id="responsive-imgs">
+                    <img src="assets/images/figuras-10.png">
+                </div>
+                <p class="text-conteudo">em que F representa o número de faces, V, o número de vértices e
+                    A, o número de arestas.
+                </p>
             </div>
 
         </div>
-        <div class="tab-pane fade show " id="cone" role="tabpanel" aria-labelledby="cone-tab">..1.</div>
+
+        <!------------------------------ CONE -------------------------------->
+        <div class="tab-pane fade" id="cone" role="tabpanel" aria-labelledby="cone-tab">
+            <div class="container">
+                <h1>Cones</h1>
+
+                <div class="mb-2">
+                    <div class="alert alert-primary" role="alert">
+                        <div class="row g-0">
+                            <div class="col-md-3">
+                                <img src="assets/images/figuras-15.png" class="img-fluid rounded-start" alt="...">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <p class="text-conteudo">
+                                        Quando chega o
+                                        calor, o sorvete é um alimento irresistível. Existem vários tipos de sorvete,
+                                        como o picolé e o sundae, mas o de casquinha, além de ser delicioso, tem uma
+                                        relação com a Matemática: o cone.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-conteudo">
+                    Quando se reúnem todos os segmentos de reta formados entre os pontos de um circulo e um ponto
+                    <i>V</i> fora
+                    dele, forma - se um corpo redondo chamado <b>cone</b>.
+                </p>
+
+
+                <div class="mb-3">
+                    <div class="row g-0">
+
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h2 class="card-title">Elementos de um cone</h2>
+                                <p class="text-conteudo">
+                                    <b> Base:</b> um círculo.<br>
+                                    <b>Vértice:</b> ponto externo ao círculo. <br>
+                                    <b>Altura:</b> distância do vértice ao plano que contém a base. <br>
+                                    <b> Eixo:</b> reta que contém o centro do círculo e o
+                                    vértice do cone. <br>
+                                    <b>Geratriz: </b> segmento cujas extremidades são o vértice do cone e
+                                    um ponto da circunferência da base.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <img src="assets/images/figuras-13.png" class="img-fluid rounded-start" alt="...">
+                        </div>
+                    </div>
+                </div>
+                <h2>Tipos de Cone</h2>
+                <p class="text-conteudo"> &emsp;&emsp;Quando o eixo é perpendicular à base, o cone é reto; caso
+                    contrário, o cone é <b>oblíquo </b>. </p>
+                <div id="responsive-imgs">
+                    <img src="assets/images/figuras-14.png">
+                </div>
+                <h2>Área dos cones retos</h2>
+                <p class="text-conteudo"> &emsp;&emsp;A planificação de um cone reto é composta pelo círculo da base e
+                    por um setor circular cujo raio é a geratriz. O comprimento desse setor coincide com o comprimento
+                    do comprimento de seu arco, que coincide com o comprimento do círculo da base.</p>
+                <div id="responsive-imgs">
+                    <img src="assets/images/figura-14.png">
+                </div>
+                <p class="text-conteudo"> &emsp;&emsp;A planificação de um cone reto é composta pelo círculo da base e
+                    por um setor circular cujo raio é a geratriz. O comprimento desse setor coincide com o comprimento
+                    do comprimento de seu arco, que coincide com o comprimento do círculo da base.</p>
+            </div>
+        </div>
+
+
+        <!-------------------------------------- CILINDRO -------------------------------->
         <div class="tab-pane fade" id="cilindro" role="tabpanel" aria-labelledby="cilindro-tab">..2.</div>
         <div class="tab-pane fade" id="cubo" role="tabpanel" aria-labelledby="cubo-tab">..3.</div>
         <div class="tab-pane fade" id="esfera" role="tabpanel" aria-labelledby="esfera-tab">4..</div>
@@ -167,5 +343,8 @@
         crossorigin="anonymous"></script>
 
 </body>
+
+<!----------------------- RODAPÉ----------------------------------->
+
 
 </html>

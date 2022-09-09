@@ -76,13 +76,29 @@ async function init() {
     // Convenience function to setup a webcam
     const flip = false; // whether to flip the webcam
 
-  
+    if (screenWidth <= 360 && screenHeight <= 969) {
         webcam = new tmImage.Webcam(360, 360, flip); // width, height, flip
         await webcam.setup({ facingMode: "environment" }); // request access to the webcam
         await webcam.play();
         window.requestAnimationFrame(loop);
+
         myTimer();
 
+    } else if (screenWidth > 360 || screenWidth <= 414 && screenHeight <= 969) {
+        webcam = new tmImage.Webcam(375, 375, flip); // width, height, flip
+        await webcam.setup({ facingMode: "environment" }); // request access to the webcam
+        await webcam.play();
+        window.requestAnimationFrame(loop);
+
+        myTimer();
+
+    } else {
+        webcam = new tmImage.Webcam(1920, 800, flip); // width, height, flip
+        await webcam.setup(); // request access to the webcam
+        await webcam.play();
+        window.requestAnimationFrame(loop);
+        myTimer();
+    }
 
     // append elements to the DOM
     document.getElementById("webcam-container").appendChild(webcam.canvas);

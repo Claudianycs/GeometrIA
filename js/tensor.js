@@ -34,7 +34,7 @@ async function solidos() {
         document.getElementById("nav-solido").innerHTML = "<img src='assets/icons/cone.png'>";
     } else if (mudar == 2) {
         document.getElementById("imagem-solido").innerHTML = "<img src='" + img[mudar] + "'>";
-        document.getElementById("texto-solido").innerHTML = "Uma pirâmide quadrada é uma pirâmide que tem uma base quadrada. Se os lados da pirâmide são triângulos equiláteros e é um dos Sólidos de Johnson. Se o ápice está perpendicularmente acima do centro do quadrado, terá uma simetria C₄ᵥ. É constituída por 1 quadrado e 4 triângulos.";
+        document.getElementById("texto-solido").innerHTML = "Uma pirâmide quadrada é uma pirâmide que tem uma base quadrada, sendo constituída por 1 quadrado e 4 triângulos.";
         document.getElementById("nav-solido").innerHTML = "<img src='assets/icons/piramide.png'>";
     } else if (mudar == 3) {
         document.getElementById("imagem-solido").innerHTML = "<img src='" + img[mudar] + "'>";
@@ -42,15 +42,15 @@ async function solidos() {
         document.getElementById("nav-solido").innerHTML = "<img src='assets/icons/esfera.png'>";
     } else if (mudar == 4) {
         document.getElementById("imagem-solido").innerHTML = "<img src='" + img[mudar] + "'>";
-        document.getElementById("texto-solido").innerHTML = "Paralelepípedo ou bloco retangular é a designação dada a um prisma cujas faces são paralelogramos. Um paralelepípedo tem seis faces, sendo que duas são idênticas e paralelas entre si. Os paralelepípedos podem ser retos ou oblíquos, consoante as suas faces laterais sejam perpendiculares ou não à base.";
+        document.getElementById("texto-solido").innerHTML = "Paralelepípedo ou bloco retangular é o nome dado a um prisma cujas faces são paralelogramos. Um paralelepípedo tem seis faces, sendo que duas são idênticas e paralelas entre si.";
         document.getElementById("nav-solido").innerHTML = "<img src='assets/icons/paralelepipedo.png'>";
     } else if (mudar == 5) {
         document.getElementById("imagem-solido").innerHTML = "<img src='" + img[mudar] + "'>";
-        document.getElementById("texto-solido").innerHTML = "Um cubo ou hexaedro regular é um poliedro com 6 faces congruentes. Além disso, é um dos cinco sólidos platônicos, pois: cada face tem 4 arestas; de cada vértice partem 3 arestas; vale a relação de Euler: {V-A+F=2}, onde V representa o número de vértices, A o número de arestas e F o número de faces.";
+        document.getElementById("texto-solido").innerHTML = "Um cubo ou hexaedro regular é um poliedro com 6 faces congruentes. Além disso, é um dos cinco sólidos platônicos, pois: cada face tem 4 arestas; de cada vértice partem 3 arestas";
         document.getElementById("nav-solido").innerHTML = "<img src='assets/icons/cubo.png'>";
     } else if (mudar == 6) {
         document.getElementById("imagem-solido").innerHTML = "<img src='" + img[mudar] + "'>";
-        document.getElementById("texto-solido").innerHTML = "Um cilindro é o objeto tridimensional delimitado pela superfície de translação completa de um segmento de reta que se move paralelamente a si mesmo, e se apoia em uma circunferência.";
+        document.getElementById("texto-solido").innerHTML = "Um cilindro é o objeto tridimensional formado por duas bases circulares em planos distintos e paralelos e por todos os pontos entre essas bases";
         document.getElementById("nav-solido").innerHTML = "<img src='assets/icons/cilindro.png'>";
 
     } else {
@@ -214,8 +214,6 @@ async function predict() {
                 pontos();
                 next();
                 
-
-
                 document.getElementById("nomesolido").innerHTML = "Parelelepípedo";
                 break;
 

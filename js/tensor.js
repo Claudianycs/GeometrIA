@@ -57,7 +57,6 @@ async function solidos() {
         console.error(img);
     }
 
-
 }
 
 async function init() {
@@ -121,8 +120,6 @@ function printsolido() {
     return pontos();
 }
 /*------------------------TIMER GAMER------------------------------------ */
-
-
 
 btn.addEventListener('click', () => {
     btn.disabled = true;
@@ -239,7 +236,6 @@ async function predict() {
         else {
 
         }
-
 
     }// fim if proba
 }

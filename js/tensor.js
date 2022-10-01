@@ -61,7 +61,7 @@ async function solidos() {
 
 async function init() {
 
-    const webcam = document.getElementById('video');
+    const video = document.getElementById('video');
 
     const videoConstraints = {
         facingMode: 'environment'
@@ -80,6 +80,9 @@ async function init() {
         });
 
     navigator.mediaDevices.enumerateDevices().then(gotDevices);
+
+ 
+
 
 }
 /* ---------------------- CAM CAPTURE ---------------------*/

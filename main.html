@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="css/style.css">
+  
 </head>
 
 <body onload="iniciando()">
@@ -27,37 +28,37 @@
   <!------------------------------------------------------------------------>
 
   <!------------------------------------ WEBCAM / NAV PILLS-------------------------------------->
-  <nav class="nav nav-pills nav-fill">
+  <main>
+    <nav class="nav nav-pills nav-fill">
 
-    <li class="nav-item" id="redimensionar-img">
-      <img src="assets/icons/trofeu.png" style="width: 45px;">
-    </li>
-    <li class="nav-item" id="redimensionar-img">
-      <h4 id="score"></h4>
-    </li>
-
-    <li class="nav-item" id="redimensionar-img">
-      <img src="assets/icons/relogio.png" style="width: 45px;">
-    </li>
-    <li class="nav-item" id="redimensionar-img">
-      <h4 id="timer"></h4>
-    </li>
-    <li class="nav-item">
-      <a href="#" onclick="pausestart()" type="button"><img src="assets/icons/bt_sound.png" style="width: 50px;"> </a>
-    </li>
-  </nav>
-  <div id="webcam-container"></div>
-
-  <!------------------------------------ PREDIÇÃO/MENSAGEM IMAGE-------------------------------------->
-
-  <div id="responsive-imgs-mensagens">
-    <p id="label-container"> </p>
-    <h2 id="nomesolido"> </h2>
-    <div id="canvas"></div>
-
-  </div>
-
-  <!------------------------------------ MODAL SORTEIO SOLIDOS-------------------------------------->
+        <li class="nav-item" id="redimensionar-img">
+          <img src="assets/icons/trofeu.png" style="width: 45px;">
+        </li>
+        <li class="nav-item" id="redimensionar-img">
+          <h4 id="score"></h4>
+        </li>
+    
+        <li class="nav-item" id="redimensionar-img">
+          <img src="assets/icons/relogio.png" style="width: 45px;">
+        </li>
+        <li class="nav-item" id="redimensionar-img">
+          <h4 id="timer"></h4>
+        </li>
+        <li class="nav-item">
+          <a href="#" onclick="pausestart()" type="button"><img src="assets/icons/bt_sound.png" style="width: 50px;"> </a>
+        </li>
+      </nav>
+      <div id="webcam-container"></div>
+    
+      <!------------------------------------ PREDIÇÃO/MENSAGEM IMAGE-------------------------------------->
+      <video id="video" autoplay playsinline></video>
+      
+        <p id="label-container"> </p>
+        <h2 id="nomesolido"> </h2>
+    
+      <!------------------------------------ MODAL SORTEIO SOLIDOS-------------------------------------->
+ 
+ 
 
   <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
     aria-hidden="true" style="text-align: center;">
@@ -151,7 +152,7 @@
   <script src="js/tensor.js"></script>
   <script src="js/config.js"></script>
   <script src="js/sounds.js"></script>
-
+</main>
 </body>
 
 </html>

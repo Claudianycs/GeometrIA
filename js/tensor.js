@@ -60,53 +60,26 @@ async function solidos() {
 }
 
 async function init() {
-    const modelURL = URL + "model.json";
-    const metadataURL = URL + "metadata.json";
 
-    var screenWidth = window.screen.width;
-    var screenHeight = window.screen.height;
+    const webcam = document.getElementById('video');
 
-    // load the model and metadata
-    // Refer to tmImage.loadFromFiles() in the API to support files from a file picker
-    // or files from your local hard drive
-    // Note: the pose library adds "tmImage" object to your window (window.tmImage)
-    model = await tmImage.load(modelURL, metadataURL);
-    maxPredictions = model.getTotalClasses();
-    // Convenience function to setup a webcam
-    const flip = false; // whether to flip the webcam
+    const videoConstraints = {
+        facingMode: 'environment'
+    };
+    const constraints = {
+        video: videoConstraints,
+        audio: false
+    };
+    navigator.mediaDevices
+        .getUserMedia(constraints)
+        .then(stream => {
+            video.srcObject = stream;
+        })
+        .catch(error => {
+            console.error(error);
+        });
 
-    if (screenWidth <= 360 && screenHeight <= 969) {
-        webcam = new tmImage.Webcam(360, 360, flip); // width, height, flip
-        await webcam.setup({ facingMode: "environment" }); // request access to the webcam
-        await webcam.play();
-        window.requestAnimationFrame(loop);
-
-        myTimer();
-
-    } else if (screenWidth > 360 || screenWidth <= 414 && screenHeight <= 969) {
-        webcam = new tmImage.Webcam(375, 375, flip); // width, height, flip
-        await webcam.setup({ facingMode: "environment" }); // request access to the webcam
-        await webcam.play();
-        window.requestAnimationFrame(loop);
-
-        myTimer();
-
-    } else {
-        webcam = new tmImage.Webcam(1920, 800, flip); // width, height, flip
-        await webcam.setup(); // request access to the webcam
-        await webcam.play();
-        window.requestAnimationFrame(loop);
-        myTimer();
-    }
-
-    // append elements to the DOM
-    document.getElementById("webcam-container").appendChild(webcam.canvas);
-
-
-    labelContainer = document.getElementById("label-container");
-    for (let i = 0; i < maxPredictions; i++) { // and class labels
-        labelContainer.appendChild(document.createElement("div"));
-    }
+    navigator.mediaDevices.enumerateDevices().then(gotDevices);
 
 }
 /* ---------------------- CAM CAPTURE ---------------------*/
@@ -172,30 +145,30 @@ async function predict() {
     // predict can take in an image, video or canvas html element
     const prediction = await model.predict(webcam.canvas);
     for (let i = 0; i < maxPredictions; i++) {
-      /*  const classPrediction =
-            prediction[i].className + ": " + prediction[i].probability.toFixed(2);
-        labelContainer.childNodes[i].innerHTML = classPrediction;*/
+        /*  const classPrediction =
+              prediction[i].className + ": " + prediction[i].probability.toFixed(2);
+          labelContainer.childNodes[i].innerHTML = classPrediction;*/
 
-        
+
         if (prediction[i].probability > 0.94) {
             if (mudar == 0 && i == 0) {
                 next();
                 pontos();
 
                 document.getElementById("nomesolido").innerHTML = "Prisma Triângular";
-                
+
                 break;
             } else if (mudar == 1 && i == 1) {
                 pontos();
                 next();
-                
+
 
                 document.getElementById("nomesolido").innerHTML = "Cone";
                 break;
             } else if (mudar == 2 && i == 2) {
                 pontos();
                 next();
-                
+
 
                 document.getElementById("nomesolido").innerHTML = "Pirâmide";
                 break;
@@ -203,14 +176,14 @@ async function predict() {
             } else if (mudar == 3 && i == 3) {
                 pontos();
                 next();
-                
+
                 document.getElementById("nomesolido").innerHTML = "Esfera";
                 break;
 
             } else if (mudar == 4 && i == 4) {
                 pontos();
                 next();
-                
+
                 document.getElementById("nomesolido").innerHTML = "Parelelepípedo";
                 break;
 
@@ -218,14 +191,14 @@ async function predict() {
             } else if (mudar == 5 && i == 5) {
                 next();
                 pontos();
-                
+
                 document.getElementById("nomesolido").innerHTML = "Cilindro";
                 break;
 
             } else if (mudar == 6 && i == 6) {
                 next();
                 pontos();
-                
+
                 document.getElementById("nomesolido").innerHTML = "Cubo";
 
                 break;
@@ -256,7 +229,7 @@ function next() {
         $('#myModalNext').modal('show');
         pausestart();
         playcorrect();
-        pauseTimer();   
+        pauseTimer();
         printsolido();
         webcam.pause();
     });
@@ -268,7 +241,7 @@ function reiniciando() {
         $('#myModal').modal('show');
         pausecount();
         solidos();
-    
+
 
         webcam.play(); // update the webcam frame
         window.requestAnimationFrame(loop);

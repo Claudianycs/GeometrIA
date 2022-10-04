@@ -81,7 +81,6 @@ async function init() {
 
     navigator.mediaDevices.enumerateDevices().then(gotDevices);
 
- 
 
 
 }

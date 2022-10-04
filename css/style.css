@@ -97,6 +97,7 @@ footer {
   padding-top: 10px;
 }
 
+
 a #timer {
   font-size: 1.5em;
   color: black;
@@ -155,6 +156,16 @@ div #responsive-imgs-sorteio img {
   padding-top: 7%;
   padding-left: 5%;
   padding-right: 5%;
+
+}
+
+div #responsive-imgs-sorteio a {
+  display: block;
+  margin: 5px auto;
+  max-width: 100%;
+  align-items: center;
+  align-content: center;
+
 
 }
 

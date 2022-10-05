@@ -159,16 +159,6 @@ div #responsive-imgs-sorteio img {
 
 }
 
-div #responsive-imgs-sorteio a {
-  display: block;
-  margin: 5px auto;
-  max-width: 100%;
-  align-items: center;
-  align-content: center;
-
-
-}
-
 div #responsive-botton img {
   display: block;
   width: 200px;

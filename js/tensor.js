@@ -62,22 +62,26 @@ async function solidos() {
 async function init() {
 
     const video = document.getElementById('video');
+    const button = document.getElementById('codigo');
 
-    const videoConstraints = {
-        facingMode: 'environment'
-    };
-    const constraints = {
-        video: videoConstraints,
-        audio: false
-    };
-    navigator.mediaDevices
-        .getUserMedia(constraints)
-        .then(stream => {
-            video.srcObject = stream;
-        })
-        .catch(error => {
-            console.error(error);
-        });
+
+    button.addEventListener('click', event => {
+        const videoConstraints = {
+            facingMode: 'environment'
+        };
+        const constraints = {
+            video: videoConstraints,
+            audio: false
+        };
+        navigator.mediaDevices
+            .getUserMedia(constraints)
+            .then(stream => {
+                video.srcObject = stream;
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    });
 
     navigator.mediaDevices.enumerateDevices().then(gotDevices);
 

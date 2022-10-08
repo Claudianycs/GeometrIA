@@ -86,7 +86,6 @@ async function init() {
     navigator.mediaDevices.enumerateDevices().then(gotDevices);
 
 
-
 }
 /* ---------------------- CAM CAPTURE ---------------------*/
 function printsolido() {

@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html class="no-js" lang="pt-br">
 
 <head>
@@ -14,58 +15,65 @@
     <link rel="stylesheet" href="css/modal.css">
 </head>
 
-<body>
+<body class="container-fluid-inicial">
     <audio id="audioContainerCount" autoplay>
         <source src="assets/sounds/CountDown.mp3" type="audio/mpeg">
     </audio>
     <!-- Background & animion & navbar & title -->
-    <div class="container-fluid-inicial">
+    <div class="background">
         <!-- Background animtion-->
-        <div class="background">
+        <div>
             <div class="cube"></div>
             <div class="cube"></div>
             <div class="cube"></div>
             <div class="cube"></div>
             <div class="cube"></div>
         </div>
-        <!-- header -->
-        <header>
-            <!-- navbar -->
-            <ul class="nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="conteudo.html"><img src="assets/icons/20.png"></a>
-                </li>
+        <!-- navbar -->
+        <ul class="nav">
+            <li class="nav-item">
+                <a class="nav-link" href="conteudo.html"><img src="assets/icons/20.png"></a>
+            </li>
 
-                <li class="nav-item">
-                    <a class="nav-link" href="about.html"><img src="assets/icons/21.png"></a>
-                </li>
-            </ul>
-            <!-- title & content -->
-            <section class="header-content">
-                <div id="responsive-imgs">
-                    <img src="assets/images/geo.png">
-                </div>
-                <div id="responsive-botton">
-                    <a href="" type="button" onClick="playcount()" id="init" class="cta"><img
-                            src="assets/images/bt_startr.png"></a>
-                </div>
-                <div id="container-text">
-                    <h6 class="texto-principal"> Encontre objetos no mundo real que tenha um formato de sólido
-                        geométrico. Uma rede neural tentará adivinhar qual sólido geométrico você está mostrando.
-                        Verifique se o som
-                        está ligado.</h6>
+            <li class="nav-item">
+                <a class="nav-link" href="sobre.html"><img src="assets/icons/21.png"></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="avaliar.html"><img src="assets/icons/avaliar.png"></a>
+            </li>
+        </ul>
+        <!-- title & content -->
 
-                    <label> Esta aplicação foi inspirada no Jogo "Emoji Scavenger Hunt" desenvolvido pela google
-                        com TensorFlow.js</label>
-                </div>
-            </section>
-        </header>
+        <br>
+        <div id="responsive-imgs">
+            <img src="assets/images/geo.png">
+        </div>
+
+        <div>
+            <a href="" type="button" onClick="playcount()" id="init" class="cta" id="responsive-botton"><img
+                    src="assets/images/bt_startr.png"></a>
+        </div>
+        <section class="header-content">
+            <div id="container-text">
+                <h6 class="texto-principal"> Encontre objetos no mundo real que tenha um formato de sólido
+                    geométrico. Uma rede neural tentará adivinhar qual sólido geométrico você está mostrando.
+                    Verifique se o som
+                    está ligado.</h6>
+
+                <label> Esta aplicação foi inspirada no Jogo "Emoji Scavenger Hunt" desenvolvido pela Google
+                    com TensorFlow.js</label>
+            </div>
+        </section>
+
+
+        <footer>
+            &copy; <em id="date"></em>PPGENEB - IFGoiano. 2022.
+        </footer>
 
     </div>
+
     <div class="overlay">
-
         <div class="wrapper-contagem" id="time">
-
         </div>
     </div>
 

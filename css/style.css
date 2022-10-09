@@ -99,10 +99,7 @@ footer {
 .modal-content div {
   background-color: #E6E6FA;
 }
-.modal-content a{
-align-items: center;
-align-items: center;
-  }
+
 .conteudo ul:nth-of-type(4) {
   list-style-type: decimal;
 }
@@ -173,12 +170,9 @@ div #responsive-imgs-sorteio img {
 }
 
 div #responsive-botton img, a {
-  display: block;
   width: 200px;
   max-width: 100%;
   padding-bottom: 10px;
-  text-align: center;
-  align-items: center;
   align-content: center;
 }
 

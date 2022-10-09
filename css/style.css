@@ -170,7 +170,7 @@ div #responsive-imgs-sorteio img {
 }
 
 
-a #responsive-botton img {
+img #responsive-botton {
   display: block;
   width: 200px;
   max-width: 100%;

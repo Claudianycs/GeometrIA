@@ -99,6 +99,10 @@ footer {
 .modal-content div {
   background-color: #E6E6FA;
 }
+.modal-content a{
+align-items: center;
+align-items: center;
+  }
 .conteudo ul:nth-of-type(4) {
   list-style-type: decimal;
 }

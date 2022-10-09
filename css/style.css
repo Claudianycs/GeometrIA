@@ -150,7 +150,6 @@ div #responsive-imgs img {
 
 div #responsive-imgs-mensagens a {
   display: block;
-  margin: 5px auto;
   max-width: 100%;
   align-items: center;
   align-content: center;
@@ -174,6 +173,7 @@ div #responsive-botton img, a {
   width: 200px;
   max-width: 100%;
   padding-bottom: 10px;
+   text-align: center;
 }
 
 div .minhaDiv {

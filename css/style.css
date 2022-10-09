@@ -168,6 +168,16 @@ div #responsive-imgs-sorteio img {
   padding-right: 5%;
 
 }
+
+div #responsive-botton img, a {
+  display: block;
+  width: 200px;
+  max-width: 100%;
+  padding-bottom: 10px;
+  align-content: center;
+  align-items: center;
+}
+
 div .minhaDiv {
   font-family: fantasy;
   color: white;

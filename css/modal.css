@@ -235,13 +235,9 @@ body {
 }
 
 .cta {
-  position: relative;
-  font-family: Open Sans;
-  color: white !important;
   padding: 7px 30px;
   border: none;
   font-weight: 600;
-  align-items: center;
   align-content: center;
 }
 

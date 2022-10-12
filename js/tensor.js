@@ -61,29 +61,49 @@ async function solidos() {
 
 async function init() {
 
-    const video = document.getElementById('video');
-    const button = document.getElementById('codigo');
+    let isIos = false; 
+    // fix when running demo in ios, video will be frozen;
+    if (window.navigator.userAgent.indexOf('iPhone') > -1 || window.navigator.userAgent.indexOf('iPad') > -1) {
+      isIos = true;
+    }
+    // Load the image model and setup the webcam
+    async function init() {
+        const modelURL = URL + 'model.json';
+        const metadataURL = URL + 'metadata.json';
 
+        // load the model and metadata
+        // Refer to tmImage.loadFromFiles() in the API to support files from a file picker
+        // or files from your local hard drive
+        model = await tmImage.load(modelURL, metadataURL);
+        maxPredictions = model.getTotalClasses();
 
-    button.addEventListener('click', event => {
-        const videoConstraints = {
-            facingMode: 'environment'
-        };
-        const constraints = {
-            video: videoConstraints,
-            audio: false
-        };
-        navigator.mediaDevices
-            .getUserMedia(constraints)
-            .then(stream => {
-                video.srcObject = stream;
-            })
-            .catch(error => {
-                console.error(error);
-            });
-    });
+        // Convenience function to setup a webcam
+        const flip = false; // whether to flip the webcam
+        const width = 360;
+        const height = 360;
+        webcam = new tmImage.Webcam(width, height, flip);
+         await webcam.setup({ facingMode: "environment" });
+        await webcam.setup(); // request access to the webcam
 
-    navigator.mediaDevices.enumerateDevices().then(gotDevices);
+        if (isIos) {
+            document.getElementById('webcam-container').appendChild(webcam.webcam); // webcam object needs to be added in any case to make this work on iOS
+            // grab video-object in any way you want and set the attributes
+            const webCamVideo = document.getElementsByTagName('video')[0];
+            webCamVideo.setAttribute("playsinline", true);
+            webCamVideo.setAttribute({ facingMode: "environment" }); // written with "setAttribute" bc. iOS buggs otherwise
+            webCamVideo.muted = "true";
+            webCamVideo.style.width = width + 'px';
+            webCamVideo.style.height = height + 'px';
+        } else {
+            document.getElementById("webcam-container").appendChild(webcam.canvas);
+        }
+        // append elements to the DOM
+        labelContainer = document.getElementById('label-container');
+        for (let i = 0; i < maxPredictions; i++) { // and class labels
+            labelContainer.appendChild(document.createElement('div'));
+        }
+        webcam.play();
+        window.requestAnimationFrame(loop);
 
 
 }
@@ -147,13 +167,17 @@ function atualizapontos() {
 /* ------------------ PREDIÇÃO----------- */
 async function predict() {
 
-    // predict can take in an image, video or canvas html element
-    const prediction = await model.predict(webcam.canvas);
+
+    let prediction;
+    if (isIos) {
+        prediction = await model.predict(webcam.webcam);
+    } else {
+        prediction = await model.predict(webcam.canvas);
+    }
     for (let i = 0; i < maxPredictions; i++) {
         /*  const classPrediction =
               prediction[i].className + ": " + prediction[i].probability.toFixed(2);
           labelContainer.childNodes[i].innerHTML = classPrediction;*/
-
 
         if (prediction[i].probability > 0.94) {
             if (mudar == 0 && i == 0) {

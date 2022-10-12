@@ -87,8 +87,8 @@ async function init() {
         document.getElementById('webcam-container').appendChild(webcam.webcam); // webcam object needs to be added in any case to make this work on iOS
         // grab video-object in any way you want and set the attributes
         const webCamVideo = document.getElementsByTagName('video')[0];
-        webCamVideo.setAttribute("playsinline", true);
-        webCamVideo.setAttribute({ facingMode: "environment" }); // written with "setAttribute" bc. iOS buggs otherwise
+        webCamVideo.setAttribute("playsinline", true); 
+        webCamVideo.facingMode = "true";// written with "setAttribute" bc. iOS buggs otherwise
         webCamVideo.muted = "true";
         webCamVideo.style.width = width + 'px';
         webCamVideo.style.height = height + 'px';
@@ -179,7 +179,7 @@ async function predict() {
 
         if (prediction[i].probability > 0.94) {
             if (mudar == 0 && i == 0) {
-                next();
+               
                 pontos();
 
                 document.getElementById("nomesolido").innerHTML = "Prisma Triângular";
@@ -187,46 +187,45 @@ async function predict() {
                 break;
             } else if (mudar == 1 && i == 1) {
                 pontos();
-                next();
+                
 
 
                 document.getElementById("nomesolido").innerHTML = "Cone";
                 break;
             } else if (mudar == 2 && i == 2) {
                 pontos();
-                next();
-
+             
 
                 document.getElementById("nomesolido").innerHTML = "Pirâmide";
                 break;
 
             } else if (mudar == 3 && i == 3) {
                 pontos();
-                next();
+                
 
                 document.getElementById("nomesolido").innerHTML = "Esfera";
                 break;
 
             } else if (mudar == 4 && i == 4) {
                 pontos();
-                next();
+             
 
                 document.getElementById("nomesolido").innerHTML = "Parelelepípedo";
                 break;
 
 
             } else if (mudar == 5 && i == 5) {
-                next();
-                pontos();
-
-                document.getElementById("nomesolido").innerHTML = "Cilindro";
-                break;
-
-            } else if (mudar == 6 && i == 6) {
-                next();
+               
                 pontos();
 
                 document.getElementById("nomesolido").innerHTML = "Cubo";
+                break;
+
+            } else if (mudar == 6 && i == 6) {
+             
+                pontos();
+
+                document.getElementById("nomesolido").innerHTML = "Cilindro";
 
                 break;
             } else {

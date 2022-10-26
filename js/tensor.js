@@ -179,52 +179,44 @@ async function predict() {
 
         if (prediction[i].probability > 0.94) {
             if (mudar == 0 && i == 0) {
-               
                 pontos();
-
+                next();
                 document.getElementById("nomesolido").innerHTML = "Prisma Triângular";
-
                 break;
             } else if (mudar == 1 && i == 1) {
                 pontos();
-                
-
 
                 document.getElementById("nomesolido").innerHTML = "Cone";
                 break;
             } else if (mudar == 2 && i == 2) {
                 pontos();
-             
-
+                next();
                 document.getElementById("nomesolido").innerHTML = "Pirâmide";
                 break;
 
             } else if (mudar == 3 && i == 3) {
                 pontos();
-                
-
+                next();
                 document.getElementById("nomesolido").innerHTML = "Esfera";
                 break;
 
             } else if (mudar == 4 && i == 4) {
                 pontos();
-             
-
+                next();
                 document.getElementById("nomesolido").innerHTML = "Parelelepípedo";
                 break;
 
 
             } else if (mudar == 5 && i == 5) {
-               
                 pontos();
-
+                next();
                 document.getElementById("nomesolido").innerHTML = "Cubo";
                 break;
 
             } else if (mudar == 6 && i == 6) {
              
                 pontos();
-
+                next();
                 document.getElementById("nomesolido").innerHTML = "Cilindro";
 
                 break;
@@ -256,7 +248,7 @@ function next() {
         pausestart();
         playcorrect();
         pauseTimer();
-        printsolido();
+     //   printsolido();
         webcam.pause();
     });
 

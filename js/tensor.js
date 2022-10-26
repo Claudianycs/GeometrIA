@@ -185,7 +185,7 @@ async function predict() {
                 break;
             } else if (mudar == 1 && i == 1) {
                 pontos();
-
+                next();
                 document.getElementById("nomesolido").innerHTML = "Cone";
                 break;
             } else if (mudar == 2 && i == 2) {
@@ -206,7 +206,6 @@ async function predict() {
                 document.getElementById("nomesolido").innerHTML = "Parelelepípedo";
                 break;
 
-
             } else if (mudar == 5 && i == 5) {
                 pontos();
                 next();
@@ -214,7 +213,6 @@ async function predict() {
                 break;
 
             } else if (mudar == 6 && i == 6) {
-             
                 pontos();
                 next();
                 document.getElementById("nomesolido").innerHTML = "Cilindro";

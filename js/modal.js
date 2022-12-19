@@ -517,7 +517,7 @@
     // three lines.
     /* jshint ignore: start */
     if ( typeof Symbol === "function" ) {
-        jQuery.fn[ Symbol.iterator ] = arr[ Symbol.iterator ];
+        jQuery.fn[ Symbol.iterator ] = arr[ Symbol.iterator ];  
     }
     /* jshint ignore: end */
     

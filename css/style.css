@@ -119,11 +119,15 @@ footer {
   background-color: #7001b9;
   padding-top: 10px;
 }
-
-h2 #nomesolido{
+div #nomesolido1 {
+  font-size: 1.5em;
   text-align: center;
   align-content: center;
+  color:#099c1d;
+  font-style: bold;
+  margin-bottom: 1rem;
 }
+
 
 a #timer {
   font-size: 1.5em;

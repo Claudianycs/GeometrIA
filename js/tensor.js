@@ -2,12 +2,12 @@
 // https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/image
 
 // the link to your model provided by Teachable Machine export panel
-const URL = "https://teachablemachine.withgoogle.com/models/6BFn4KAKX/";
+const URL = "https://teachablemachine.withgoogle.com/models/-6Bi_UlE4/";
 
 let model, webcam, labelContainer, maxPredictions, point, scoretotal, mudar;
 
 let score = 0;
-let timer = 31;
+let timer = 61;
 let btn = document.getElementById('codigo');
 
 // Load the image model and setup the webcam
@@ -26,16 +26,16 @@ async function solidos() {
 
     if (mudar == 0) {
         document.getElementById("imagem-solido").innerHTML = "<img src='" + img[mudar] + "'>";
-        document.getElementById("texto-solido").innerHTML = "Um prisma triangular é um prisma de três lados; é um poliedro feito de uma base triangular, uma cópia traduzida e 3 faces que unem os lados correspondentes. ";
-        document.getElementById("nav-solido").innerHTML = "<img src='assets/icons/prisma.png'>";
+        document.getElementById("texto-solido").innerHTML = "Um cilindro é o objeto tridimensional formado por duas bases circulares em planos distintos e paralelos e por todos os pontos entre essas bases";
+        document.getElementById("nav-solido").innerHTML = "<img src='assets/icons/cilindro.png'>";
     } else if (mudar == 1) {
         document.getElementById("imagem-solido").innerHTML = "<img src='" + img[mudar] + "'>";
         document.getElementById("texto-solido").innerHTML = "O cone é um sólido geométrico obtido quando se tem uma pirâmide cuja base é um polígono regular, o número de lados da base tende ao infinito e a medida de lado do polígono tende a zero.";
         document.getElementById("nav-solido").innerHTML = "<img src='assets/icons/cone.png'>";
     } else if (mudar == 2) {
         document.getElementById("imagem-solido").innerHTML = "<img src='" + img[mudar] + "'>";
-        document.getElementById("texto-solido").innerHTML = "Uma pirâmide quadrada é uma pirâmide que tem uma base quadrada, sendo constituída por 1 quadrado e 4 triângulos.";
-        document.getElementById("nav-solido").innerHTML = "<img src='assets/icons/piramide.png'>";
+        document.getElementById("texto-solido").innerHTML = "Um cubo ou hexaedro regular é um poliedro com 6 faces congruentes. Além disso, é um dos cinco sólidos platônicos, pois: cada face tem 4 arestas; de cada vértice partem 3 arestas";
+        document.getElementById("nav-solido").innerHTML = "<img src='assets/icons/cubo.png'>";
     } else if (mudar == 3) {
         document.getElementById("imagem-solido").innerHTML = "<img src='" + img[mudar] + "'>";
         document.getElementById("texto-solido").innerHTML = "A esfera pode ser definida como uma sequência de pontos alinhados em todos os sentidos à mesma distância de um centro comum.";
@@ -46,12 +46,12 @@ async function solidos() {
         document.getElementById("nav-solido").innerHTML = "<img src='assets/icons/paralelepipedo.png'>";
     } else if (mudar == 5) {
         document.getElementById("imagem-solido").innerHTML = "<img src='" + img[mudar] + "'>";
-        document.getElementById("texto-solido").innerHTML = "Um cubo ou hexaedro regular é um poliedro com 6 faces congruentes. Além disso, é um dos cinco sólidos platônicos, pois: cada face tem 4 arestas; de cada vértice partem 3 arestas";
-        document.getElementById("nav-solido").innerHTML = "<img src='assets/icons/cubo.png'>";
+        document.getElementById("texto-solido").innerHTML = "Uma pirâmide quadrada é uma pirâmide que tem uma base quadrada, sendo constituída por 1 quadrado e 4 triângulos.";
+        document.getElementById("nav-solido").innerHTML = "<img src='assets/icons/piramide.png'>";
     } else if (mudar == 6) {
         document.getElementById("imagem-solido").innerHTML = "<img src='" + img[mudar] + "'>";
-        document.getElementById("texto-solido").innerHTML = "Um cilindro é o objeto tridimensional formado por duas bases circulares em planos distintos e paralelos e por todos os pontos entre essas bases";
-        document.getElementById("nav-solido").innerHTML = "<img src='assets/icons/cilindro.png'>";
+        document.getElementById("texto-solido").innerHTML = "Um prisma triangular é um prisma de três lados; é um poliedro feito de uma base triangular, uma cópia traduzida e 3 faces que unem os lados correspondentes. ";
+        document.getElementById("nav-solido").innerHTML = "<img src='assets/icons/prisma.png'>";
 
     } else {
         console.error(img);
@@ -87,7 +87,7 @@ async function init() {
         document.getElementById('webcam-container').appendChild(webcam.webcam); // webcam object needs to be added in any case to make this work on iOS
         // grab video-object in any way you want and set the attributes
         const webCamVideo = document.getElementsByTagName('video')[0];
-        webCamVideo.setAttribute("playsinline", true); 
+        webCamVideo.setAttribute("playsinline", true);
         webCamVideo.facingMode = "true";// written with "setAttribute" bc. iOS buggs otherwise
         webCamVideo.muted = "true";
         webCamVideo.style.width = width + 'px';
@@ -128,11 +128,11 @@ function myTimer() {
     timer--;
     document.getElementById("timer").innerText = "" + timer;
     if (timer == 0) {
-        gameover();
+        //gameover();
         webcam.pause();
         btn.disabled = false;
         clearInterval(counter);
-        timer = 30;
+        timer = 61;
     }
 }
 
@@ -165,68 +165,143 @@ function atualizapontos() {
 /* ------------------ PREDIÇÃO----------- */
 async function predict() {
 
-
     let prediction;
+
     if (isIos) {
         prediction = await model.predict(webcam.webcam);
     } else {
         prediction = await model.predict(webcam.canvas);
     }
     for (let i = 0; i < maxPredictions; i++) {
-        /*  const classPrediction =
-              prediction[i].className + ": " + prediction[i].probability.toFixed(2);
-          labelContainer.childNodes[i].innerHTML = classPrediction;*/
 
-        if (prediction[i].probability > 0.94) {
+        let percentual = prediction[i].probability * 100;
+
+        const classPrediction =
+            prediction[i].className + ": " + prediction[i].probability.toFixed(2);
+        // labelContainer.childNodes[i].innerHTML = classPrediction;
+
+        if (percentual.toFixed(0) > 79) {
             if (mudar == 0 && i == 0) {
                 pontos();
                 next();
-                document.getElementById("nomesolido").innerHTML = "Prisma Triângular";
+                document.getElementById("nomesolido1").innerHTML = percentual.toFixed(0) + "% semelhante a um CILINDRO";
+
                 break;
             } else if (mudar == 1 && i == 1) {
                 pontos();
                 next();
-                document.getElementById("nomesolido").innerHTML = "Cone";
+                document.getElementById("nomesolido1").innerHTML = percentual.toFixed(0) + "% semelhante a um CONE";
+
                 break;
             } else if (mudar == 2 && i == 2) {
                 pontos();
                 next();
-                document.getElementById("nomesolido").innerHTML = "Pirâmide";
+                document.getElementById("nomesolido1").innerHTML = percentual.toFixed(0) + "% semelhante a um CUBO";
+
                 break;
 
             } else if (mudar == 3 && i == 3) {
                 pontos();
                 next();
-                document.getElementById("nomesolido").innerHTML = "Esfera";
+                document.getElementById("nomesolido1").innerHTML = percentual.toFixed(0) + "% semelhante a uma ESFERA";
+
                 break;
 
             } else if (mudar == 4 && i == 4) {
                 pontos();
                 next();
-                document.getElementById("nomesolido").innerHTML = "Parelelepípedo";
+                document.getElementById("nomesolido1").innerHTML = percentual.toFixed(0) + "% semelhante a um PARALELEPIPEDO";
+
                 break;
 
             } else if (mudar == 5 && i == 5) {
                 pontos();
                 next();
-                document.getElementById("nomesolido").innerHTML = "Cubo";
+                document.getElementById("nomesolido1").innerHTML = percentual.toFixed(0) + "% semelhante a um PIRÂMIDE";
+
+
                 break;
 
             } else if (mudar == 6 && i == 6) {
                 pontos();
                 next();
-                document.getElementById("nomesolido").innerHTML = "Cilindro";
+                document.getElementById("nomesolido1").innerHTML = percentual.toFixed(0) + "% semelhante a um PRISMA TRIANGULAR";
+
 
                 break;
             } else {
-                document.getElementById("nomesolido").innerHTML = "...";
-            }
-        }// fim if proba
-        else {
+                document.getElementById("nomesolido1").innerHTML = "Não identificado";
 
+            }
         }
 
+
+        if (percentual.toFixed(0) < 79) {
+            document.getElementById("nomesolido2").innerHTML = percentual.toFixed(0) + "% semelhante a um(a) " + prediction[i].className;
+        } else if (prediction[i].probability == 0) {
+            document.getElementById("nomesolido2").innerHTML = "";
+        }
+
+
+        /* if (percentual.toFixed(0) > 1 && percentual.toFixed(0) < 50) {
+             document.getElementById("nomesolido3").innerHTML = percentual.toFixed(0) + "% semelhante a um(a) " + prediction[i].className;
+         } else if (prediction[i].probability == 0) {
+             document.getElementById("nomesolido3").innerHTML = "";
+         }
+ 
+          if (prediction[i].probability > 0.94) {
+              if (mudar == 0 && i == 0) {
+                  pontos();
+                  next();
+                  document.getElementById("nomesolido").innerHTML = "Prisma Triângular";
+                  break;
+              } else if (mudar == 1 && i == 1) {
+                  pontos();
+                  next();
+                  document.getElementById("nomesolido").innerHTML = "Cone";
+                  break;
+              } else if (mudar == 2 && i == 2) {
+                  pontos();
+                  next();
+                  document.getElementById("nomesolido").innerHTML = "Pirâmide";
+                  break;
+  
+              } else if (mudar == 3 && i == 3) {
+                  pontos();
+                  next();
+                  document.getElementById("nomesolido").innerHTML = "Esfera";
+                  break;
+  
+              } else if (mudar == 4 && i == 4) {
+                  pontos();
+                  next();
+                  document.getElementById("nomesolido").innerHTML = "Parelelepípedo";
+                  break;
+  
+              } else if (mudar == 5 && i == 5) {
+                  pontos();
+                  next();
+                  document.getElementById("nomesolido").innerHTML = "Cubo";
+                  break;
+  
+              } else if (mudar == 6 && i == 6) {
+                  pontos();
+                  next();
+                  document.getElementById("nomesolido").innerHTML = "Cilindro";
+  
+                  break;
+              } else {
+                  document.getElementById("nomesolido").innerHTML = "...";
+              }
+          }// fim if proba
+          else {
+  
+          }*/
+
+
     }// fim if proba
+
+
 }
 
 function iniciando() {
@@ -241,14 +316,27 @@ function iniciando() {
 }
 
 function next() {
-    $(document).ready(function () {
-        $('#myModalNext').modal('show');
+
+    try {
+      
         pausestart();
         playcorrect();
         pauseTimer();
-     //   printsolido();
+       // printsolido();
         webcam.pause();
-    });
+        pontos(); 
+     /*  $(document).ready(function () {
+            $('<a href="" type="button" id="btnext" onclick=" reiniciando()"> <img src="assets/icons/bt_next.png"> </a>').appendTo('#bttnext');
+        });*/
+    } catch (error) {
+        console.log(error);
+    }
+
+
+    /* $(document).ready(function () {
+         $('#myModalNext').modal('show');
+        
+     });*/
 
 }
 
@@ -258,7 +346,6 @@ function reiniciando() {
         pausecount();
         solidos();
 
-
         webcam.play(); // update the webcam frame
         window.requestAnimationFrame(loop);
 
@@ -266,7 +353,7 @@ function reiniciando() {
 
     $('#codigo').prop("disabled", false).click(function () {
         $('#myModal').modal('show');
-        myTimer();
+        //  myTimer();
 
     });
 

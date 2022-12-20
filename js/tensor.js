@@ -128,7 +128,7 @@ function myTimer() {
     timer--;
     document.getElementById("timer").innerText = "" + timer;
     if (timer == 0) {
-        //gameover();
+        gameover();
         webcam.pause();
         btn.disabled = false;
         clearInterval(counter);
@@ -318,21 +318,18 @@ function iniciando() {
 function next() {
 
     try {
-      
         pausestart();
         playcorrect();
         pauseTimer();
        // printsolido();
         webcam.pause();
         pontos(); 
-     /*  $(document).ready(function () {
+    /*  $(document).ready(function () {
             $('<a href="" type="button" id="btnext" onclick=" reiniciando()"> <img src="assets/icons/bt_next.png"> </a>').appendTo('#bttnext');
         });*/
     } catch (error) {
         console.log(error);
     }
-
-
     /* $(document).ready(function () {
          $('#myModalNext').modal('show');
         

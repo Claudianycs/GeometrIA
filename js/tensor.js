@@ -180,41 +180,40 @@ async function predict() {
             prediction[i].className + ": " + prediction[i].probability.toFixed(2);
         // labelContainer.childNodes[i].innerHTML = classPrediction;
 
-        if (percentual.toFixed(0) > 79) {
-            if (mudar == 0 && i == 0) {
+            if (percentual.toFixed(0) > 79 && mudar == 0 && i == 0) {
                 pontos();
                 next();
                 document.getElementById("nomesolido1").innerHTML = percentual.toFixed(0) + "% semelhante a um CILINDRO";
 
                 break;
-            } else if (mudar == 1 && i == 1) {
+            } else if (percentual.toFixed(0) > 79 &&  mudar == 1 && i == 1) {
                 pontos();
                 next();
                 document.getElementById("nomesolido1").innerHTML = percentual.toFixed(0) + "% semelhante a um CONE";
 
                 break;
-            } else if (mudar == 2 && i == 2) {
+            } else if (percentual.toFixed(0) > 79 &&  mudar == 2 && i == 2) {
                 pontos();
                 next();
                 document.getElementById("nomesolido1").innerHTML = percentual.toFixed(0) + "% semelhante a um CUBO";
 
                 break;
 
-            } else if (mudar == 3 && i == 3) {
+            } else if (percentual.toFixed(0) > 79 &&  mudar == 3 && i == 3) {
                 pontos();
                 next();
                 document.getElementById("nomesolido1").innerHTML = percentual.toFixed(0) + "% semelhante a uma ESFERA";
 
                 break;
 
-            } else if (mudar == 4 && i == 4) {
+            } else if (percentual.toFixed(0) > 79 &&  mudar == 4 && i == 4) {
                 pontos();
                 next();
                 document.getElementById("nomesolido1").innerHTML = percentual.toFixed(0) + "% semelhante a um PARALELEPIPEDO";
 
                 break;
 
-            } else if (mudar == 5 && i == 5) {
+            } else if (percentual.toFixed(0) > 79 && mudar == 5 && i == 5) {
                 pontos();
                 next();
                 document.getElementById("nomesolido1").innerHTML = percentual.toFixed(0) + "% semelhante a um PIRÂMIDE";
@@ -222,7 +221,7 @@ async function predict() {
 
                 break;
 
-            } else if (mudar == 6 && i == 6) {
+            } else if (percentual.toFixed(0) > 79 &&  mudar == 6 && i == 6) {
                 pontos();
                 next();
                 document.getElementById("nomesolido1").innerHTML = percentual.toFixed(0) + "% semelhante a um PRISMA TRIANGULAR";
@@ -233,8 +232,6 @@ async function predict() {
                 document.getElementById("nomesolido1").innerHTML = "Não identificado";
 
             }
-        }
-
 
         if (percentual.toFixed(0) < 79) {
             document.getElementById("nomesolido2").innerHTML = percentual.toFixed(0) + "% semelhante a um(a) " + prediction[i].className;

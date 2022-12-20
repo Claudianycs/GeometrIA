@@ -323,7 +323,7 @@ function next() {
         pauseTimer();
        // printsolido();
         webcam.pause();
-        pontos(); 
+        //pontos(); 
     /*  $(document).ready(function () {
             $('<a href="" type="button" id="btnext" onclick=" reiniciando()"> <img src="assets/icons/bt_next.png"> </a>').appendTo('#bttnext');
         });*/

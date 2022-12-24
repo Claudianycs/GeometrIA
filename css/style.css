@@ -95,11 +95,17 @@ footer {
   position: absolute;
   bottom: 0;
   left: 0;
-  font-family: fantasy;
+  color: white;
 }
-
+.text-bold{
+  color: #730fb6;
+}
 .text-conteudo {
   font-size: 1.2em;
+  text-align: justify;
+}
+.text-conteudo-instrucao {
+  font-size: 0.8em;
   text-align: justify;
 }
 
@@ -323,3 +329,4 @@ body {
 
   text-decoration: none;
 }
+

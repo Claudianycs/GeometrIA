@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge, chrome=1'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/modal.css">
+    <title>GeometrIA</title>
+
+</head>
+
+<body>
+
+    <audio id="audioContainerCount">
+        <source src="assets/sounds/CountDown.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="container">
+        <h2> Instruções</h2>
+        <div class="card mb-3 alert" role="alert"
+            style="background-color: rgb(231, 220, 255); color: rgb(91, 18, 160);">
+            <i class="text-conteudo-instrucao"> O jogo GeometrIA é uma aplicação é experimental, portanto
+                pode apresentar algumas
+                falhas
+                como a <b> classificação errada de alguns objetos ou não indentificação do objeto</b>. Para uma
+                melhor
+                experiência siga as instruções a seguir: </i>
+        </div>
+
+
+        <div class="conteudo">
+            <p class="text-conteudo-instrucao"><b class="text-bold"> 1º passo:</b> Após a contagem regressiva aguarde a
+                permissão de acesso a camera do
+                seu dispositivo.
+            </p>
+            <div id="responsive-imgs">
+                <img src="assets/images/cam3.png" style="width: 200px;">
+            </div>
+
+            <p class="text-conteudo-instrucao"> <b class="text-bold"> 2º passo:</b> Após permitir o acesso a câmera
+                presione o botão "Play" para encontrar um objeto semelhante ao sólido informado.
+            </p>
+            <div id="responsive-imgs">
+                <img src="assets/images/cam4.png" style="width: 250px;">
+            </div>
+
+            <p class="text-conteudo-instrucao"><b class="text-bold"> 3º passo:</b> Posicione bem a câmera
+                para que seja possível reconhecer o objeto, caso não reconheça você pode mudar a posição do
+                objeto. Abaixo da camera será informado o percentual de semelhança do objeto com os sólidos geométricos.
+                Para prosseguir clique no botão "Next".
+            </p>
+            <div id="responsive-imgs">
+                <img src="assets/images/cam2.png" style="width: 250px;">
+            </div>
+            <h3>Clique no botão abaixo para iniciar o jogo:</h3>
+            <div id="responsive-botton">
+                <a href="" type="button" onClick="playcount()" id="init" class="cta"><img
+                        src="assets/icons/bt_play2.png"></a>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="overlay">
+        <div class="wrapper-contagem" id="time">
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"
+        integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+
+    <script src="js/config.js"></script>
+    <script src="js/sounds.js"></script>
+</body>
+
+
+</html>

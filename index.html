@@ -11,8 +11,8 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
-    <link rel="stylesheet" href="css/inicial.css">
     <link rel="stylesheet" href="css/modal.css">
+    <link rel="stylesheet" href="css/inicial.css">
 </head>
 
 <body class="container-fluid-inicial">
@@ -38,9 +38,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="sobre.html"><img src="assets/icons/21.png"></a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="avaliar.html"><img src="assets/icons/avaliar.png"></a>
-            </li>
+            
         </ul>
         <!-- title & content -->
 
@@ -48,17 +46,18 @@
         <div id="responsive-imgs">
             <img src="assets/images/geo.png">
         </div>
-
         <div id="responsive-botton">
-            <a href="" type="button" onClick="playcount()" id="init" class="cta" ><img 
+            <a href="instrucao.html" type="button" ><img 
                     src="assets/icons/bt_start.png"></a>
         </div>
+
+        
         <section class="header-content">
             <div id="container-text">
-                <h6 class="texto-principal"> Encontre objetos no mundo real que tenha um formato de sólido
-                    geométrico. Uma rede neural tentará adivinhar qual sólido geométrico você está mostrando.
-                    Verifique se o som
-                    está ligado.</h6>
+                <h6 class="texto-principal"> Encontre objetos no mundo real que sejam semelhantes a um sólido
+                    geométrico. Uma rede neural tentará adivinhar qual sólido geométrico você está mostrando. <br><br>
+                  <i> Verifique se o som
+                    está ligado.</i>  </h6>
 
                 <label> Esta aplicação foi inspirada no Jogo "Emoji Scavenger Hunt" desenvolvido pela Google
                     com TensorFlow.js</label>
@@ -67,7 +66,7 @@
 
 
         <footer>
-            &copy; <em id="date"></em>PPGENEB - IFGoiano, 2022.
+           <br> &copy;PPGENEB - IFGoiano, 2022.
         </footer>
 
     </div>
@@ -79,7 +78,7 @@
 
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"
         integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
-    <script src="js/modal.js"></script>
+    
     <script src="js/config.js"></script>
     <script src="js/sounds.js"></script>
 </body>

@@ -6,7 +6,8 @@ const URL = "https://teachablemachine.withgoogle.com/models/-6Bi_UlE4/";
 
 let model, webcam, labelContainer, maxPredictions, point, scoretotal, mudar;
 
-let score = 0;
+
+var score = 0;
 let timer = 61;
 let btn = document.getElementById('codigo');
 
@@ -102,19 +103,109 @@ async function init() {
     }
     webcam.play();
     window.requestAnimationFrame(loop);
-
-
 }
-/* ---------------------- CAM CAPTURE ---------------------*/
-function printsolido() {
 
-    html2canvas(webcam.canvas).then(canvas => {
+/*--------------------------------------------------------------- */
+async function loop() {
+    webcam.update(); // update the webcam frame
+    await predict();
+    window.requestAnimationFrame(loop);
+}
 
-        document.getElementById("capture-solido").appendChild(canvas);
+/* ------------------ PREDIÇÃO----------- */
+async function predict() {
+
+    let prediction;
+
+    var next = document.getElementById("responsive-botton-next");
+
+    if (isIos) {
+        prediction = await model.predict(webcam.webcam);
+    } else {
+        prediction = await model.predict(webcam.canvas);
+    }
+
+    for (let i = 0; i < maxPredictions; i++) {
+
+        let percentual = prediction[i].probability * 100;
+
+        if (percentual.toFixed(0) > 85 && i != 7) {
+
+            if (mudar == 0 && i == 0) {
+                document.getElementById("nomesolido1").innerHTML = percentual.toFixed(0) + "% semelhante a um CILINDRO";
+                score += 1;
+                playcorrect();
+                pauseTimer();
+
+                next.style.display = "block";
+            } else if (mudar == 1 && i == 1) {
+                document.getElementById("nomesolido1").innerHTML = percentual.toFixed(0) + "% semelhante a um CONE";
+                score += 1;
+                playcorrect();
+                pauseTimer();
+
+                next.style.display = "block";
+            } else if (mudar == 2 && i == 2) {
+
+                document.getElementById("nomesolido1").innerHTML = percentual.toFixed(0) + "% semelhante a um CUBO";
+                score += 1;
+                playcorrect();
+                pauseTimer();
+
+                next.style.display = "block";
+            } else if (mudar == 3 && i == 3) {
+                document.getElementById("nomesolido1").innerHTML = percentual.toFixed(0) + "% semelhante a uma ESFERA";
+                score += 1;
+                playcorrect();
+                pauseTimer();
+
+                next.style.display = "block";
+            } else if (mudar == 4 && i == 4) {
+                document.getElementById("nomesolido1").innerHTML = percentual.toFixed(0) + "% semelhante a um PARALELEPIPEDO";
+
+                laycorrect();
+                pauseTimer();
+                next.style.display = "block";
+            } else if (mudar == 5 && i == 5) {
+                document.getElementById("nomesolido1").innerHTML = percentual.toFixed(0) + "% semelhante a uma PIRÂMIDE QUADRANGULAR";
+
+                playcorrect();
+                pauseTimer();
+                next.style.display = "block";
+            } else if (mudar == 6 && i == 6) {
+                document.getElementById("nomesolido1").innerHTML = percentual.toFixed(0) + "% semelhante a um PRISMA TRIANGULAR";
+                score += 1;
+                playcorrect();
+                pauseTimer();
+                next.style.display = "block";
+
+            }
+
+        }
+
+        if (percentual.toFixed(0) < 80) {
+            document.getElementById("nomesolido2").innerHTML = percentual.toFixed(0) + "% semelhante a um(a) " + prediction[i].className;
+        } else if (prediction[i].probability == 0) {
+            document.getElementById("nomesolido2").innerHTML = "";
+        }
+
+
+    }// fim if proba
+
+    document.getElementById("score").innerHTML = "🏆" + score;
+}
+
+function iniciando() {
+    $(document).ready(function () {
+        $('#myModal').modal('show');
+        playstart();
+        pausecount();
+        solidos();
+        init();
     });
 
-    return pontos();
 }
+
 /*------------------------TIMER GAMER------------------------------------ */
 
 btn.addEventListener('click', () => {
@@ -126,7 +217,7 @@ btn.addEventListener('click', () => {
 
 function myTimer() {
     timer--;
-    document.getElementById("timer").innerText = "" + timer;
+    document.getElementById("timer").innerText = "⏱" + timer;
     if (timer == 0) {
         gameover();
         webcam.pause();
@@ -143,202 +234,32 @@ function pauseTimer() {
     });
 }
 
-/*--------------------------------------------------------------- */
-async function loop() {
-    webcam.update(); // update the webcam frame
-    await predict();
-    window.requestAnimationFrame(loop);
-}
-
-function pontos() {
-
-    score += 1;
-    document.getElementById("score").innerHTML = "" + score;
-
-}
-
-function atualizapontos() {
-    score += 1;
-    score.getElementById("score").innerHTML = "" + score;
-
-}
-/* ------------------ PREDIÇÃO----------- */
-async function predict() {
-
-    let prediction;
-
-    if (isIos) {
-        prediction = await model.predict(webcam.webcam);
-    } else {
-        prediction = await model.predict(webcam.canvas);
-    }
-    for (let i = 0; i < maxPredictions; i++) {
-
-        let percentual = prediction[i].probability * 100;
-
-        const classPrediction =
-            prediction[i].className + ": " + prediction[i].probability.toFixed(2);
-        // labelContainer.childNodes[i].innerHTML = classPrediction;
-
-            if (percentual.toFixed(0) > 79 && mudar == 0 && i == 0) {
-                pontos();
-                next();
-                document.getElementById("nomesolido1").innerHTML = percentual.toFixed(0) + "% semelhante a um CILINDRO";
-
-                break;
-            } else if (percentual.toFixed(0) > 79 &&  mudar == 1 && i == 1) {
-                pontos();
-                next();
-                document.getElementById("nomesolido1").innerHTML = percentual.toFixed(0) + "% semelhante a um CONE";
-
-                break;
-            } else if (percentual.toFixed(0) > 79 &&  mudar == 2 && i == 2) {
-                pontos();
-                next();
-                document.getElementById("nomesolido1").innerHTML = percentual.toFixed(0) + "% semelhante a um CUBO";
-
-                break;
-
-            } else if (percentual.toFixed(0) > 79 &&  mudar == 3 && i == 3) {
-                pontos();
-                next();
-                document.getElementById("nomesolido1").innerHTML = percentual.toFixed(0) + "% semelhante a uma ESFERA";
-
-                break;
-
-            } else if (percentual.toFixed(0) > 79 &&  mudar == 4 && i == 4) {
-                pontos();
-                next();
-                document.getElementById("nomesolido1").innerHTML = percentual.toFixed(0) + "% semelhante a um PARALELEPIPEDO";
-
-                break;
-
-            } else if (percentual.toFixed(0) > 79 && mudar == 5 && i == 5) {
-                pontos();
-                next();
-                document.getElementById("nomesolido1").innerHTML = percentual.toFixed(0) + "% semelhante a um PIRÂMIDE";
-
-
-                break;
-
-            } else if (percentual.toFixed(0) > 79 &&  mudar == 6 && i == 6) {
-                pontos();
-                next();
-                document.getElementById("nomesolido1").innerHTML = percentual.toFixed(0) + "% semelhante a um PRISMA TRIANGULAR";
-
-
-                break;
-            } else {
-                document.getElementById("nomesolido1").innerHTML = "Não identificado";
-
-            }
-
-        if (percentual.toFixed(0) < 79) {
-            document.getElementById("nomesolido2").innerHTML = percentual.toFixed(0) + "% semelhante a um(a) " + prediction[i].className;
-        } else if (prediction[i].probability == 0) {
-            document.getElementById("nomesolido2").innerHTML = "";
-        }
-
-
-        /* if (percentual.toFixed(0) > 1 && percentual.toFixed(0) < 50) {
-             document.getElementById("nomesolido3").innerHTML = percentual.toFixed(0) + "% semelhante a um(a) " + prediction[i].className;
-         } else if (prediction[i].probability == 0) {
-             document.getElementById("nomesolido3").innerHTML = "";
-         }
- 
-          if (prediction[i].probability > 0.94) {
-              if (mudar == 0 && i == 0) {
-                  pontos();
-                  next();
-                  document.getElementById("nomesolido").innerHTML = "Prisma Triângular";
-                  break;
-              } else if (mudar == 1 && i == 1) {
-                  pontos();
-                  next();
-                  document.getElementById("nomesolido").innerHTML = "Cone";
-                  break;
-              } else if (mudar == 2 && i == 2) {
-                  pontos();
-                  next();
-                  document.getElementById("nomesolido").innerHTML = "Pirâmide";
-                  break;
-  
-              } else if (mudar == 3 && i == 3) {
-                  pontos();
-                  next();
-                  document.getElementById("nomesolido").innerHTML = "Esfera";
-                  break;
-  
-              } else if (mudar == 4 && i == 4) {
-                  pontos();
-                  next();
-                  document.getElementById("nomesolido").innerHTML = "Parelelepípedo";
-                  break;
-  
-              } else if (mudar == 5 && i == 5) {
-                  pontos();
-                  next();
-                  document.getElementById("nomesolido").innerHTML = "Cubo";
-                  break;
-  
-              } else if (mudar == 6 && i == 6) {
-                  pontos();
-                  next();
-                  document.getElementById("nomesolido").innerHTML = "Cilindro";
-  
-                  break;
-              } else {
-                  document.getElementById("nomesolido").innerHTML = "...";
-              }
-          }// fim if proba
-          else {
-  
-          }*/
-
-
-    }// fim if proba
-
-
-}
-
-function iniciando() {
-    $(document).ready(function () {
-        $('#myModal').modal('show');
-        playstart();
-        pausecount();
-        solidos();
-        init();
-    });
-
-}
-
+/*------------------------NEXT SÓLIDO GAMER------------------------------------ */
 function next() {
 
     try {
         pausestart();
         playcorrect();
         pauseTimer();
-       // printsolido();
+        // printsolido();
         webcam.pause();
-        //pontos(); 
-    /*  $(document).ready(function () {
-            $('<a href="" type="button" id="btnext" onclick=" reiniciando()"> <img src="assets/icons/bt_next.png"> </a>').appendTo('#bttnext');
-        });*/
+
+        document.getElementById("responsive-botton-next").style.display = "none";
+
     } catch (error) {
         console.log(error);
     }
-    /* $(document).ready(function () {
-         $('#myModalNext').modal('show');
-        
-     });*/
 
 }
 
 function reiniciando() {
+
     $(document).ready(function () {
         $('#myModal').modal('show');
-        pausecount();
         solidos();
+
+        var next = document.getElementById("responsive-botton-next");
+        next.style.display = "none";
 
         webcam.play(); // update the webcam frame
         window.requestAnimationFrame(loop);
@@ -356,7 +277,7 @@ function reiniciando() {
 function gameover() {
     $(document).ready(function () {
         $('#myModalGameOver').modal('show');
-        webcam.pause();
+        webcam.stop();
 
         document.getElementById("pontos").innerText = "" + score + " pontos";
     });

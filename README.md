@@ -22,4 +22,4 @@ Esta aplicação é experimental, portando pode apresentar algumas falhas. O mod
  - Não identificado (7)
 
 
-![geo](https://user-images.githubusercontent.com/65419184/190917404-08be5104-7b87-4574-b1c9-6ffa224a1a58.png)
+![pe](https://user-images.githubusercontent.com/65419184/209489966-641bbf82-cd70-4b37-85b2-bf32003a43bf.png)

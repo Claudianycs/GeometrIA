@@ -21,5 +21,4 @@ Esta aplicação é experimental, portando pode apresentar algumas falhas. O mod
  - Pirâmide (6)
  - Não identificado (7)
 
-
-![pe](https://user-images.githubusercontent.com/65419184/209489966-641bbf82-cd70-4b37-85b2-bf32003a43bf.png)
+![pe](https://user-images.githubusercontent.com/65419184/209490155-663b37a4-9d9b-4c12-9837-783df1377565.png)

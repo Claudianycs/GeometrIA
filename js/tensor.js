@@ -135,52 +135,37 @@ async function predict() {
                 document.getElementById("nomesolido1").innerHTML = percentual.toFixed(0) + "% semelhante a um CILINDRO";
                 score += 1;
                 playcorrect();
-                pauseTimer();
-
                 next.style.display = "block";
             } else if (mudar == 1 && i == 1) {
                 document.getElementById("nomesolido1").innerHTML = percentual.toFixed(0) + "% semelhante a um CONE";
                 score += 1;
                 playcorrect();
-                pauseTimer();
-
                 next.style.display = "block";
             } else if (mudar == 2 && i == 2) {
-
                 document.getElementById("nomesolido1").innerHTML = percentual.toFixed(0) + "% semelhante a um CUBO";
                 score += 1;
                 playcorrect();
-                pauseTimer();
-
                 next.style.display = "block";
             } else if (mudar == 3 && i == 3) {
                 document.getElementById("nomesolido1").innerHTML = percentual.toFixed(0) + "% semelhante a uma ESFERA";
                 score += 1;
                 playcorrect();
-                pauseTimer();
-
                 next.style.display = "block";
             } else if (mudar == 4 && i == 4) {
                 document.getElementById("nomesolido1").innerHTML = percentual.toFixed(0) + "% semelhante a um PARALELEPIPEDO";
-
-                laycorrect();
-                pauseTimer();
+                score += 1;
+                playcorrect();
                 next.style.display = "block";
             } else if (mudar == 5 && i == 5) {
                 document.getElementById("nomesolido1").innerHTML = percentual.toFixed(0) + "% semelhante a uma PIRÂMIDE QUADRANGULAR";
-
                 playcorrect();
-                pauseTimer();
                 next.style.display = "block";
             } else if (mudar == 6 && i == 6) {
                 document.getElementById("nomesolido1").innerHTML = percentual.toFixed(0) + "% semelhante a um PRISMA TRIANGULAR";
                 score += 1;
                 playcorrect();
-                pauseTimer();
                 next.style.display = "block";
-
             }
-
         }
 
         if (percentual.toFixed(0) < 80) {
@@ -188,7 +173,6 @@ async function predict() {
         } else if (prediction[i].probability == 0) {
             document.getElementById("nomesolido2").innerHTML = "";
         }
-
 
     }// fim if proba
 

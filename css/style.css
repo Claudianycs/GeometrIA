@@ -97,19 +97,23 @@ footer {
   left: 0;
   color: white;
 }
-.text-bold{
+
+.text-bold {
   color: #730fb6;
 }
+
 .text-conteudo {
   font-size: 1.2em;
   text-align: justify;
 }
+
 .text-conteudo-instrucao {
   font-size: 0.8em;
   text-align: justify;
 }
 
-.title-conteudo h2, h3 {
+.title-conteudo h2,
+h3 {
   text-align: left;
 }
 
@@ -125,15 +129,6 @@ footer {
   background-color: #7001b9;
   padding-top: 10px;
 }
-div #nomesolido1 {
-  font-size: 1.5em;
-  text-align: center;
-  align-content: center;
-  color:#099c1d;
-  font-style: bold;
-  margin-bottom: 1rem;
-}
-
 
 a #timer {
   font-size: 1.5em;
@@ -141,6 +136,25 @@ a #timer {
   font-family: fantasy;
   font-style: bold;
   text-decoration: none;
+}
+
+li #redimensionar-img img {
+  width: 65px;
+  padding-top: 0.3;
+}
+
+li #score {
+  padding-top: 7px;
+  font-size: 1em;
+  display: inline-block;
+ }
+
+
+li #timer {
+  padding-top: 7px;
+  font-size: 1em;
+  padding-left: 0%;
+  display: inline-block;
 }
 
 div #modal-body p {
@@ -153,9 +167,15 @@ div #modal-body p {
   padding-right: 10px;
 }
 
-li #redimensionar-img img {
-  width: 65px;
-  padding-top: 0.3;
+div #nomesolido1 {
+  font-size: 1.5em;
+  text-align: center;
+  align-content: center;
+  color: #099c1d;
+  font-style: bold;
+  margin-bottom: 1rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
 }
 
 div #responsive-capture div {
@@ -203,9 +223,10 @@ div #responsive-botton img {
   align-content: center;
 }
 
-div #responsive-botton-next{
-  display: none; 
+div #responsive-botton-next {
+  display: none;
 }
+
 div #responsive-botton-next img {
   width: 200px;
   max-width: 100%;
@@ -340,4 +361,3 @@ body {
 
   text-decoration: none;
 }
-

@@ -118,10 +118,10 @@ async function solidos() {
 function iniciando() {
     $(document).ready(function () {
         $('#myModal').modal('show');
-        playstart();
-        pausecount();
-        solidos();
         init();
+        solidos();
+        playstart();
+        
     });
 
 }

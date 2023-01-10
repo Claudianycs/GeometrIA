@@ -1,6 +1,6 @@
 # GeometrIA 🤖
 
-Este produto educacional foi desenvolvido durante o Mestrado Profissional de Ensino para Educação Básica (PPG-ENEB) ofertado pelo Instituto Federal IFGoiano - Campus Urutaí. O Produto foi planejado com o objetivo principal contribuir com o processo de ensino-aprendizado de geometria espacial em nível básico do ensino fundamental de uma escola municipal da Região Norte do Brasil, mediante o desenvolvimento de um jogo educacional com Inteligência Artificial.
+Este produto educacional foi desenvolvido durante o Mestrado Profissional de Ensino para Educação Básica (PPG-ENEB) ofertado pelo Instituto Federal Goiano - Campus Urutaí. O Produto foi planejado com o objetivo principal contribuir com o processo de ensino-aprendizado de geometria espacial em nível básico do ensino fundamental de uma escola municipal da Região Norte do Brasil, mediante o desenvolvimento de um jogo educacional com Inteligência Artificial.
 
 - 🎮[Jogar](https://claudianycs.github.io/GeometrIA/)
 - 📚[Video Demo](https://youtu.be/kOFaPseyIMA)

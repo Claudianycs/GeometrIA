@@ -4,6 +4,7 @@ Este produto educacional foi desenvolvido durante o Mestrado Profissional de Ens
 
 - 🎮[Jogar](https://claudianycs.github.io/GeometrIA/)
 - 📚[Video Demo](https://youtu.be/kOFaPseyIMA)
+- ⭐️[Avalie](https://forms.gle/dmcJr9FaLGis4xCw9)
   
 ## Projeto 💡
 

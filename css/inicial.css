@@ -91,6 +91,9 @@ body {
 /* ================= Header ============ */
 
 /* navbar */
+a{
+    color: rgb(255, 174, 0);
+}
 nav {
     color: #FFF;
     float: right;

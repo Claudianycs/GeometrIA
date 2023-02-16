@@ -4,24 +4,17 @@ let count = 6;
     
 /* ------------------ CONTAGEM REGRESSIVA ---------------------- */
 
-
-$('.cta').prop("disabled", true).click(function() {
-    counter = setInterval(() => {
-      Count()
-      playstart()
-    },1000)
-  })
-  
-  function Count() {
+cta.addEventListener('click', function() {
+  cta.disabled = true;
+  const intervalId = setInterval(() => {
     count--;
-    document.getElementById("time").innerText = count;
-    if(count == 1) {
-      cta.disabled = false;
-      clearInterval(counter);
-      count = 05;
-      window.location.href = "main.html"
+    document.getElementById('time').innerText = count;
+    if (count === 0) {
+      clearInterval(intervalId);
+      window.location.href = 'main.html';
     }
-  }
+  }, 1000);
+});
 
 
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
@@ -9483,8 +9476,6 @@ $('.cta').prop("disabled", true).click(function() {
     };
     
     
-    
-    
     // Attach a bunch of functions for handling common AJAX events
     jQuery.each( [
         "ajaxStart",
@@ -9786,9 +9777,7 @@ $('.cta').prop("disabled", true).click(function() {
     
     jQuery.fn.andSelf = jQuery.fn.addBack;
     
-    
-    
-    
+ 
     // Register as a named AMD module, since jQuery can be concatenated with other
     // files that may use define, but not via a proper concatenation script that
     // understands anonymous AMD modules. A named AMD is safest and most robust

@@ -4,11 +4,11 @@
 // the link to your model provided by Teachable Machine export panel
 const URL = "https://teachablemachine.withgoogle.com/models/-6Bi_UlE4/";
 
-let model, webcam, labelContainer, maxPredictions, point, scoretotal, mudar;
+let model, webcam, labelContainer, maxPredictions, point, scoretotal, mudar, counter;;
 
+let score = 0;
 
-var score = 0;
-let timer = 61;
+let timer = 60;
 let btn = document.getElementById('codigo');
 
 // Load the image model and setup the webcam
@@ -121,7 +121,7 @@ function iniciando() {
         init();
         solidos();
         playstart();
-        
+
     });
 
 }
@@ -129,143 +129,144 @@ function iniciando() {
 
 btn.addEventListener('click', () => {
     btn.disabled = true;
-    counter = setInterval(() => {
-        myTimer()
-    }, 1000)
-})
+    counter = setInterval(startTimer, 1000);
+});
 
-function myTimer() {
+function startTimer() {
     timer--;
     document.getElementById("timer").innerText = "" + timer;
-    if (timer == 0) {
+    if (timer === 0) {
         gameover();
         webcam.pause();
         btn.disabled = false;
         clearInterval(counter);
-        timer = 61;
+        timer = 60;
+        document.getElementById("timer").innerText = "" + timer;
     }
 }
 
 function pauseTimer() {
-    $(document).ready(function () {
-        clearInterval(counter);
-
-    });
+    clearInterval(counter);
 }
+
+// Initial display of the timer
+document.getElementById("timer").innerText = "" + timer;
+
+
+// Initial display of the timer
+document.getElementById("timer").innerText = "" + timer;
+
+
 
 /* ------------------ PREDIÇÃO----------- */
 async function predict() {
-
-    let prediction;
-
-    var next = document.getElementById("responsive-botton-next");
-
-    if (isIos) {
-        prediction = await model.predict(webcam.webcam);
-    } else {
-        prediction = await model.predict(webcam.canvas);
-    }
-
-    for (let i = 0; i < maxPredictions; i++) {
-
-        let percentual = prediction[i].probability * 100;
-
-        if (percentual.toFixed(0) > 85 && i != 7) {
-
-            if (mudar == 0 && i == 0) {
-                document.getElementById("nomesolido1").innerHTML = percentual.toFixed(0) + "% semelhante a um CILINDRO";
-                score += 1;
-                playcorrect();
-                next.style.display = "block";
-            } else if (mudar == 1 && i == 1) {
-                document.getElementById("nomesolido1").innerHTML = percentual.toFixed(0) + "% semelhante a um CONE";
-                score += 1;
-                playcorrect();
-                next.style.display = "block";
-            } else if (mudar == 2 && i == 2) {
-                document.getElementById("nomesolido1").innerHTML = percentual.toFixed(0) + "% semelhante a um CUBO";
-                score += 1;
-                playcorrect();
-                next.style.display = "block";
-            } else if (mudar == 3 && i == 3) {
-                document.getElementById("nomesolido1").innerHTML = percentual.toFixed(0) + "% semelhante a uma ESFERA";
-                score += 1;
-                playcorrect();
-                next.style.display = "block";
-            } else if (mudar == 4 && i == 4) {
-                document.getElementById("nomesolido1").innerHTML = percentual.toFixed(0) + "% semelhante a um PARALELEPIPEDO";
-                score += 1;
-                playcorrect();
-                next.style.display = "block";
-            } else if (mudar == 5 && i == 5) {
-                document.getElementById("nomesolido1").innerHTML = percentual.toFixed(0) + "% semelhante a uma PIRÂMIDE QUADRANGULAR";
-                playcorrect();
-                next.style.display = "block";
-            } else if (mudar == 6 && i == 6) {
-                document.getElementById("nomesolido1").innerHTML = percentual.toFixed(0) + "% semelhante a um PRISMA TRIANGULAR";
-                score += 1;
-                playcorrect();
-                next.style.display = "block";
-            }
+    try {
+      const prediction = isIos
+        ? await model.predict(webcam.webcam)
+        : await model.predict(webcam.canvas);
+  
+      for (let i = 0; i < maxPredictions; i++) {
+        const percentual = prediction[i].probability * 100;
+  
+        if (percentual.toFixed(0) > 85 && i !== 7) {
+          const solids = [
+            "CILINDRO",
+            "CONE",
+            "CUBO",
+            "ESFERA",
+            "PARALELEPIPEDO",
+            "PIRÂMIDE QUADRANGULAR",
+            "PRISMA TRIANGULAR",
+          ];
+  
+          if (mudar === i) {
+            document.getElementById("nomesolido1").innerHTML =
+              percentual.toFixed(0) + `% semelhante a um ${solids[i]}`;
+            score += 1;
+            playcorrect();
+            document.getElementById("responsive-botton-next").style.display = "block";
+          }
         }
-
+  
         if (percentual.toFixed(0) < 80) {
-            document.getElementById("nomesolido2").innerHTML = percentual.toFixed(0) + "% semelhante a um(a) " + prediction[i].className;
-        } else if (prediction[i].probability == 0) {
-            document.getElementById("nomesolido2").innerHTML = "";
+          document.getElementById("nomesolido2").innerHTML =
+            percentual.toFixed(0) + `% semelhante a um(a) ${prediction[i].className}`;
+        } else if (prediction[i].probability === 0) {
+          document.getElementById("nomesolido2").innerHTML = "";
         }
+      }
+  
+      document.getElementById("score").innerHTML = score.toString();
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  
 
-    }// fim if proba
+/*---------------*/
 
-    document.getElementById("score").innerHTML = "" + score;
-}
-
-/*------------------------NEXT SÓLIDO GAMER------------------------------------ */
+/*-------FUNÇÃO NEXT--------*/
 function next() {
-
     try {
         pausestart();
         playcorrect();
         pauseTimer();
-        // printsolido();
         webcam.pause();
 
-        document.getElementById("responsive-botton-next").style.display = "none";
-
+        const responsiveButtonNext = document.getElementById("responsive-botton-next");
+        responsiveButtonNext.style.display = "none";
     } catch (error) {
         console.log(error);
     }
-
 }
 
+/*-------REINICIANDO JOGO--------*/
 function reiniciando() {
+    $('#myModal').modal('show');
+    solidos();
 
-    $(document).ready(function () {
-        $('#myModal').modal('show');
-        solidos();
+    const responsiveButtonNext = document.getElementById("responsive-botton-next");
+    responsiveButtonNext.style.display = "none";
 
-        var next = document.getElementById("responsive-botton-next");
-        next.style.display = "none";
-
-        webcam.play(); // update the webcam frame
-        window.requestAnimationFrame(loop);
-
-    });
+    webcam.play();
+    window.requestAnimationFrame(loop);
 
     $('#codigo').prop("disabled", false).click(function () {
         $('#myModal').modal('show');
-        //  myTimer();
-
     });
-
 }
+
+
+/*-------FUNÇÃO GAME OVER--------*/
 
 function gameover() {
-    $(document).ready(function () {
-        $('#myModalGameOver').modal('show');
-        webcam.stop();
+    $('#myModalGameOver').modal('show');
+    webcam.stop();
 
-        document.getElementById("pontos").innerText = "" + score + " pontos";
-    });
-
+    const pontos = document.getElementById("pontos");
+    pontos.innerText = `${score} pontos`;
 }
+
+
+/*-------FUNÇÃO RESET GAME--------*/
+
+function resetGame() {
+    // Reset timer and score
+    score = 0;
+    document.getElementById("score").innerText = "0";
+    pauseTimer();
+    startTimer(60);
+  
+    // Reset camera
+    webcam.play();
+    window.requestAnimationFrame(loop);
+  
+    // Close modal (if present)
+    $('#myModalGameOver').modal('hide');
+  
+    // Reload the page to restart the game
+    location.reload();
+  }
+  
+
+  

@@ -1,28 +1,36 @@
 const audioContainerStart = document.getElementById("audioContainerStart");
-
 const audioContainerCount = document.getElementById("audioContainerCount");
-
 const audioContainerCorrect = document.getElementById("audioContainerCorrect");
+const audioContainerGameOver = document.getElementById("audioContainerGameOver");
 
+function playAudio(audioElement, action) {
+    if (action === 'play') {
+        audioElement.play();
+    } else if (action === 'pause') {
+        audioElement.pause();
+    }
+}
 
 function playstart() {
-    audioContainerStart.play();
-
+    playAudio(audioContainerStart, 'play');
 }
+
 function pausestart() {
-    audioContainerStart.pause();
+    playAudio(audioContainerStart, 'pause');
 }
 
 function playcount() {
-    audioContainerCount.play();
+    playAudio(audioContainerCount, 'play');
 }
 
 function pausecount() {
-    audioContainerCount.pause();
+    playAudio(audioContainerCount, 'pause');
 }
+
 function playcorrect() {
-    audioContainerCorrect.play();
+    playAudio(audioContainerCorrect, 'play');
 }
+
 function playgameover() {
-    audioContainerGameOver.play();
+    playAudio(audioContainerGameOver, 'play');
 }

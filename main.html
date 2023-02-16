@@ -63,7 +63,6 @@
 
     <!------------------------------------ MODAL SORTEIO SOLIDOS-------------------------------------->
 
-
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
       aria-hidden="true" style="text-align: center;">
       <div class="modal-dialog modal-xl" role="document">
@@ -80,7 +79,7 @@
             </div>
             <div id="responsive-botton">
 
-              <a href="#" type="button" class="custom-url" id="codigo" data-bs-dismiss="modal"><img
+              <a href="#" type="button" class="custom-url" id="codigo" data-bs-dismiss="modal" onload="startTimer()"><img
                   src="assets/icons/bt_play.png"></a>
             </div>
           </div>
@@ -113,12 +112,14 @@
       <div class="modal-dialog modal-xl" role="document">
         <div class="modal-content">
           <div id="responsive-imgs">
-            <img src="assets/images/mensagem3.png">
+            <img src="assets/images/mensagem4.png">
           </div>
           <div id="responsive-botton">
-            <a href="index.html" type="button"><img src="assets/icons/bt_again.png"></a>
 
             <a href="conteudo.html" type="button"><img src="assets/icons/bt_conteudo.png"></a>
+
+               <a href="#" type="button" id="reset-btn" onclick=" resetGame()"><img src="assets/icons/bt_again.png"></a><!-- HTML code for the reset button -->
+           
           </div>
           <div>
             <img src="assets/icons/trofeu.png" style="width: 60px;">

@@ -115,15 +115,12 @@ async function solidos() {
 
 }
 /*--------------------------------------------------------------- */
-function iniciando() {
-    $(document).ready(function () {
-        $('#myModal').modal('show');
-        init();
-        solidos();
-        playstart();
-
-    });
-
+async function iniciando() {
+    await new Promise(resolve => $(document).ready(() => resolve()));
+    $('#myModal').modal('show');
+    init();
+    solidos();
+    playstart();
 }
 /*------------------------TIMER GAMER------------------------------------ */
 
@@ -153,55 +150,50 @@ function pauseTimer() {
 document.getElementById("timer").innerText = "" + timer;
 
 
-// Initial display of the timer
-document.getElementById("timer").innerText = "" + timer;
-
-
-
 /* ------------------ PREDIÇÃO----------- */
 async function predict() {
     try {
-      const prediction = isIos
-        ? await model.predict(webcam.webcam)
-        : await model.predict(webcam.canvas);
-  
-      for (let i = 0; i < maxPredictions; i++) {
-        const percentual = prediction[i].probability * 100;
-  
-        if (percentual.toFixed(0) > 85 && i !== 7) {
-          const solids = [
-            "CILINDRO",
-            "CONE",
-            "CUBO",
-            "ESFERA",
-            "PARALELEPIPEDO",
-            "PIRÂMIDE QUADRANGULAR",
-            "PRISMA TRIANGULAR",
-          ];
-  
-          if (mudar === i) {
-            document.getElementById("nomesolido1").innerHTML =
-              percentual.toFixed(0) + `% semelhante a um ${solids[i]}`;
-            score += 1;
-            playcorrect();
-            document.getElementById("responsive-botton-next").style.display = "block";
-          }
+        const prediction = isIos
+            ? await model.predict(webcam.webcam)
+            : await model.predict(webcam.canvas);
+
+        for (let i = 0; i < maxPredictions; i++) {
+            const percentual = prediction[i].probability * 100;
+
+            if (percentual.toFixed(0) > 85 && i !== 7) {
+                const solids = [
+                    "CILINDRO",
+                    "CONE",
+                    "CUBO",
+                    "ESFERA",
+                    "PARALELEPIPEDO",
+                    "PIRÂMIDE QUADRANGULAR",
+                    "PRISMA TRIANGULAR",
+                ];
+
+                if (mudar === i) {
+                    document.getElementById("nomesolido1").innerHTML =
+                        percentual.toFixed(0) + `% semelhante a um ${solids[i]}`;
+                    score += 1;
+                    playcorrect();
+                    document.getElementById("responsive-botton-next").style.display = "block";
+                }
+            }
+
+            if (percentual.toFixed(0) < 80) {
+                document.getElementById("nomesolido2").innerHTML =
+                    percentual.toFixed(0) + `% semelhante a um(a) ${prediction[i].className}`;
+            } else if (prediction[i].probability === 0) {
+                document.getElementById("nomesolido2").innerHTML = "";
+            }
         }
-  
-        if (percentual.toFixed(0) < 80) {
-          document.getElementById("nomesolido2").innerHTML =
-            percentual.toFixed(0) + `% semelhante a um(a) ${prediction[i].className}`;
-        } else if (prediction[i].probability === 0) {
-          document.getElementById("nomesolido2").innerHTML = "";
-        }
-      }
-  
-      document.getElementById("score").innerHTML = score.toString();
+
+        document.getElementById("score").innerHTML = score.toString();
     } catch (error) {
-      console.log(error);
+        console.log(error);
     }
-  }
-  
+}
+
 
 /*---------------*/
 
@@ -256,17 +248,16 @@ function resetGame() {
     document.getElementById("score").innerText = "0";
     pauseTimer();
     startTimer(60);
-  
+
     // Reset camera
     webcam.play();
     window.requestAnimationFrame(loop);
-  
+
     // Close modal (if present)
     $('#myModalGameOver').modal('hide');
-  
+
     // Reload the page to restart the game
     location.reload();
-  }
-  
+}
 
-  
+

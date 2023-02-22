@@ -23,6 +23,10 @@ Esta aplicação é experimental, portando pode apresentar algumas falhas. O mod
  - Pirâmide (6)
  - Não identificado (7)
 
-#### Resultados do treinamento: 🗂
+#### Resul![satiss](https://user-images.githubusercontent.com/65419184/220517432-2ec123d5-98be-482b-8f61-30fffa1db663.png)
+tados do treinamento: 🗂
+![satis](ht![jkhg](https://user-images.githubusercontent.com/65419184/220517660-09659abb-4e38-4030-bffc-1bfa187ba1e8.png)
+tps://user-image![rrew](https://user-images.githubusercontent.com/65419184/220517501-7c72adb8-f47a-40d2-8ab0-3fe0d03be56c.png)
+
 
 ![pe](https://user-images.githubusercontent.com/65419184/209490155-663b37a4-9d9b-4c12-9837-783df1377565.png)

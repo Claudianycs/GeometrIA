@@ -5,7 +5,8 @@ Este produto educacional foi desenvolvido durante o Mestrado Profissional de Ens
 - 🎮[Jogar](https://claudianycs.github.io/GeometrIA/)
 - 📚[Video Demo](https://youtu.be/kOFaPseyIMA)
 - ⭐️[Avalie](https://forms.gle/dmcJr9FaLGis4xCw9)
-  
+
+⚠️ Observação: Suas imagens não estão sendo salvas durante o uso da aplicação.
 ## Projeto 💡
 
 Esta aplicação é experimental, portando pode apresentar algumas falhas. O modelo foi treinado com 08 classes compostas por imagens semelhantes a sólidos geométricos trabalhados em nível básico do ensino fundamental. Alimentado por Tensorflow.js e Teachable Machine by Google.
@@ -22,6 +23,6 @@ Esta aplicação é experimental, portando pode apresentar algumas falhas. O mod
  - Pirâmide (6)
  - Não identificado (7)
 
-⚠️ Observação: Suas imagens não estão sendo salvas durante o uso da aplicação.
+#### Resultados do treinamento: 🗂
 
 ![pe](https://user-images.githubusercontent.com/65419184/209490155-663b37a4-9d9b-4c12-9837-783df1377565.png)

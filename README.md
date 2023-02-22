@@ -15,7 +15,7 @@ Esta aplicação é experimental, portando pode apresentar algumas falhas. O mod
 
 ### Treinamento: 🗂
  - Dataset: 3.500 imagens, coloridas (RGB) de dimensões 224 x 224 pixels
- - Cilindro (0), Cone (1), Cubo (2), Esfera (3), Paralelepípedo (4), Prisma Triângular (5), Pirâmide quadrângular (6), Não identificado (7)
+ - Classes: Cilindro (0), Cone (1), Cubo (2), Esfera (3), Paralelepípedo (4), Prisma Triângular (5), Pirâmide quadrângular (6), Não identificado (7)
  - Epoch: 200 
  - Batch Size: 32
 

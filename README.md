@@ -22,4 +22,4 @@ Esta aplicação é experimental, portando pode apresentar algumas falhas. O mod
 ### Resultados do treinamento: 📊
 ![testegith](https://user-images.githubusercontent.com/65419184/220518578-f5aafd2c-bae2-4c65-9068-6fd190b5bb25.png)
 
-![pe](https://user-images.githubusercontent.com/65419184/209490155-663b37a4-9d9b-4c12-9837-783df1377565.png)
+![httpsgithub comClaudianycsGeometrIA](https://user-images.githubusercontent.com/65419184/220651183-77da6487-4aff-4e0b-9263-e1932d03c2fe.png)

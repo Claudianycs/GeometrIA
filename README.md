@@ -9,19 +9,12 @@ Este produto educacional foi desenvolvido durante o Mestrado Profissional de Ens
 ⚠️ Observação: Suas imagens não estão sendo salvas durante o uso da aplicação.
 ## Projeto 💡
 
-Esta aplicação é experimental, portando pode apresentar algumas falhas. O modelo foi treinado com 08 classes compostas por imagens semelhantes a sólidos geométricos trabalhados em nível básico do ensino fundamental. Alimentado por Tensorflow.js e Teachable Machine by Google.
+Esta aplicação é experimental, portando pode apresentar algumas falhas. O modelo foi treinado com 07 classes compostas por imagens semelhantes a sólidos geométricos trabalhados em nível básico do ensino fundamental e 01 classe de background. Alimentado por Tensorflow.js e Teachable Machine by Google.
 
 - [Modelo de aprendizagem de máquina utilizado] https://teachablemachine.withgoogle.com/models/-6Bi_UlE4/
 
 #### Classes: 🗂
- - Cilindro (0)
- - Cone (1)
- - Cubo (2)
- - Esfera (3)
- - Paralelepípedo (4)
- - Prisma Triângular (5)
- - Pirâmide (6)
- - Não identificado (7)
+ - Cilindro (0), Cone (1), Cubo (2), Esfera (3), Paralelepípedo (4), Prisma Triângular (5), Pirâmide (6), Não identificado (7)
 
 #### Resultados do treinamento: 📊
 ![testegith](https://user-images.githubusercontent.com/65419184/220518578-f5aafd2c-bae2-4c65-9068-6fd190b5bb25.png)

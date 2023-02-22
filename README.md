@@ -13,8 +13,10 @@ Esta aplicação é experimental, portando pode apresentar algumas falhas. O mod
 
 - [Modelo de aprendizagem de máquina utilizado] https://teachablemachine.withgoogle.com/models/-6Bi_UlE4/
 
-#### Classes: 🗂
+#### Treinamento: 🗂
  - Cilindro (0), Cone (1), Cubo (2), Esfera (3), Paralelepípedo (4), Prisma Triângular (5), Pirâmide (6), Não identificado (7)
+ - Epoch: 200 Batch Size: 32
+ - Dataset: 3.500 imagens, coloridas (RGB) de dimensões 224 x 224 pixels
 
 #### Resultados do treinamento: 📊
 ![testegith](https://user-images.githubusercontent.com/65419184/220518578-f5aafd2c-bae2-4c65-9068-6fd190b5bb25.png)
